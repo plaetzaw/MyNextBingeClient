@@ -1,5 +1,8 @@
 import React from 'react'
 import Binge from '../utility/images/JustOneMore.png'
+import Card from '@material-ui/core/Card'
+import { layoutGenerator } from "react-break";
+
 
 const background = {
     backgroundColor: '#D5D5D1'
@@ -57,6 +60,16 @@ const button = {
     borderStyle: 'dotted',
 }
 
+// const layout = layoutGenerator({
+//     mobile: 0,
+//     phablet: 550,
+//     tablet: 768,
+//     desktop: 992,
+//   });
+
+//   const OnMobile = layout.is("mobile");
+//   const Desktop = layout.isAtLeast("phablet");
+
 function Home() {
   return (
     <>
@@ -67,7 +80,7 @@ function Home() {
           <span><b>YourNextBinge</b> is designed to help you find the next movie
            or tv show for you to bingewatch!</span>
            <br/>
-           <img className='img-responsive' src={Binge} style={{width: '50%', height: '50%'}}></img>
+           <img className='img-responsive' src={Binge} alt="watching a show" style={{width: '50%', height: '50%'}}></img>
           </div>
           <div style={greetingItem}>
           Using this application, you can search for shows or movies that you want to watch from a variety

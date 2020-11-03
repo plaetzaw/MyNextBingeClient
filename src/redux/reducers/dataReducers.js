@@ -57,6 +57,8 @@ const dataReducers = (state = initialState, action) => {
             ...state,
             searchedMedia: action.payload
         }    
+        default:
+            return state;
 
     }
 }
