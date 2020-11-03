@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 // Set JWT Token
 export const setAuthorizationHeader = (token) => {
     const JWToken = `Bearer ${token}`;

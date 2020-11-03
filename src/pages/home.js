@@ -76,8 +76,8 @@ function Home() {
       </div>
       <div style={endContainer}>
         <div style={endItem}><button>Register for MyNextBinge</button></div>
-        <div style={endItem}>Login</div>
-        <div style={endItem}>Proceed as Guest</div>
+        <div style={endItem}><button>Login</button></div>
+        <div style={endItem}><button>Proceed as Guest</button></div>
       </div>
     </>
   )
