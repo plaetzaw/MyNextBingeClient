@@ -1,8 +1,12 @@
 import React from 'react'
 import Binge from '../utility/images/JustOneMore.png'
 
+const background = {
+    backgroundColor: '#D5D5D1'
+}
+
 const startContainer = {
-    backgroundColor: 'palegreen',
+    backgroundColor: '#B80000',
     display: 'flex',
     flexFlow: 'row-wrap',
     justifyContent: 'space-around'
@@ -11,7 +15,7 @@ const startContainer = {
 const greetingItem = {
     display: 'flex',
     width: '100%',
-    height: '50vh',
+    height: '25rem',
     justifyContent: 'center',
     alignItems: 'center',
     padding: '5px', 
@@ -19,14 +23,14 @@ const greetingItem = {
     borderStyle: 'dotted',
     borderColor: 'teal',
     margin: '5px',
-    backgroundColor: 'pink',
+    backgroundColor: '#278EE3',
     textAlign: 'center',
     fontSize: 'x-large',
 
 }
 
 const endContainer = {
-    backgroundColor: 'lightgreen',
+    backgroundColor: '#D5D5D1',
     width: '100%',
     display: 'flex',
     flexFlow: 'row-wrap',
@@ -35,9 +39,9 @@ const endContainer = {
 
 const endItem = {
     display: 'flex',
-    backgroundColor: 'pink',
-    height: '15vh',
-    width: '15vh',
+    // backgroundColor: '#278EE3',
+    height: '6rem',
+    width: '6rem',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -45,10 +49,19 @@ const endItem = {
 
 }
 
+const button = {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#278EE3',
+    border: '5px',
+    borderStyle: 'dotted',
+}
+
 function Home() {
   return (
     <>
-    <div style={{textAlign: 'center', backgroundColor: 'lightgreen'}}><h1><b>YourNextBinge</b></h1></div>
+    <div style={background}>
+    <div style={{textAlign: 'center', backgroundColor: '#D5D5D1'}}><h1><b>YourNextBinge</b></h1></div>
       <div style={startContainer}>
           <div style={greetingItem}>         
           <span><b>YourNextBinge</b> is designed to help you find the next movie
@@ -75,9 +88,10 @@ function Home() {
           
       </div>
       <div style={endContainer}>
-        <div style={endItem}><button>Register for MyNextBinge</button></div>
-        <div style={endItem}><button>Login</button></div>
-        <div style={endItem}><button>Proceed as Guest</button></div>
+        <div style={endItem}><button style={button}><b>Register for MyNextBinge</b></button></div>
+        <div style={endItem}><button style={button}><b>Login</b></button></div>
+        <div style={endItem}><button style={button}><b>Proceed as Guest</b></button></div>
+      </div>
       </div>
     </>
   )
