@@ -21,34 +21,13 @@ const greetingItem = {
 
 }
 
-const endItem = {
-    display: 'flex',
-    // backgroundColor: '#278EE3',
-    height: '6rem',
-    width: '6rem',
-    textAlign: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-  
-
-}
-
-const button = {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#278EE3',
-    border: '5px',
-    borderStyle: 'dotted',
-}
-
 function Home() {
    
   return (
     <>
     <div>
     <div className="title"><b>YourNextBinge</b></div>
-      <div className="startContainer"
-    >
+      <div className="startContainer">
           <Card style={greetingItem}>
           <span><b>YourNextBinge</b> is designed to help you find the next movie
            or tv show for you to bingewatch!</span>
@@ -74,9 +53,9 @@ function Home() {
           </Card>
       </div>
       <div className="endContainer">
-        <div style={endItem}><button style={button}><b>Register for MyNextBinge</b></button></div>
-        <div style={endItem}><button style={button}><b>Login</b></button></div>
-        <div style={endItem}><button style={button}><b>Proceed as Guest</b></button></div>
+        <div className="endItem"><button className="button"><b>Register for MyNextBinge</b></button></div>
+        <div className="endItem"><button className="button"><b>Login</b></button></div>
+        <div className="endItem"><button className="button"><b>Proceed as Guest</b></button></div>
       </div>
       </div>
     </>
