@@ -22,12 +22,12 @@
   background-color: #b80000;
   display: flex;
   justify-content: space-around;
-  flex-flow: row;
+  flex-flow: column;
 }
 
 @media screen and (min-width: 481px) {
   .startContainer {
-    flex-flow: column;
+    flex-flow: row;
   }
 }
 

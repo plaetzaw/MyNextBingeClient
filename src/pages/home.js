@@ -4,18 +4,6 @@ import Card from '@material-ui/core/Card'
 // import { layoutGenerator } from "react-break";
 import '../utility/layout.css'
 
-
-const background = {
-    backgroundColor: '#c2c283'
-}
-
-const startContainer = {
-    backgroundColor: '#B80000',
-    display: 'flex',
-    flexFlow: 'column',
-    justifyContent: 'space-around'
-}
-
 const greetingItem = {
     display: 'flex',
     width: '100%',
@@ -31,14 +19,6 @@ const greetingItem = {
     textAlign: 'center',
     fontSize: 'x-large',
 
-}
-
-const endContainer = {
-    backgroundColor: '#D5D5D1',
-    width: '100%',
-    display: 'flex',
-    flexFlow: 'row-wrap',
-    justifyContent: 'space-around'
 }
 
 const endItem = {
@@ -69,7 +49,7 @@ function Home() {
     <div className="title"><b>YourNextBinge</b></div>
       <div className="startContainer"
     >
-          <Card className="greetingitem">
+          <Card style={greetingItem}>
           <span><b>YourNextBinge</b> is designed to help you find the next movie
            or tv show for you to bingewatch!</span>
            <br/>
@@ -93,7 +73,7 @@ function Home() {
             will disable several key features
           </Card>
       </div>
-      <div style={endContainer}>
+      <div className="endContainer">
         <div style={endItem}><button style={button}><b>Register for MyNextBinge</b></button></div>
         <div style={endItem}><button style={button}><b>Login</b></button></div>
         <div style={endItem}><button style={button}><b>Proceed as Guest</b></button></div>

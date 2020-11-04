@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from '@material-ui/core/Card'
 
 const startContainer = {
     width: '100%',
@@ -25,16 +26,16 @@ const containerItem = {
 function Picker() {
   return (
     <>
-    <div style={startContainer}>
-        <div style={containerItem}>
+    <div className="startContainer">
+        <Card style={containerItem}>
             Movies
-        </div>
-        <div style={containerItem}>
+        </Card>
+        <Card style={containerItem}>
             TV Shows
-        </div>
-        <div style={containerItem}>
+        </Card>
+        <Card style={containerItem}>
             People
-        </div>
+        </Card>
     </div>
       
     </>
