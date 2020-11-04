@@ -1,17 +1,18 @@
 import React from 'react'
 import Binge from '../utility/images/JustOneMore.png'
 import Card from '@material-ui/core/Card'
-import { layoutGenerator } from "react-break";
+// import { layoutGenerator } from "react-break";
+import '../utility/layout.css'
 
 
 const background = {
-    backgroundColor: '#D5D5D1'
+    backgroundColor: '#c2c283'
 }
 
 const startContainer = {
     backgroundColor: '#B80000',
     display: 'flex',
-    flexFlow: 'row-wrap',
+    flexFlow: 'column',
     justifyContent: 'space-around'
 }
 
@@ -60,29 +61,21 @@ const button = {
     borderStyle: 'dotted',
 }
 
-// const layout = layoutGenerator({
-//     mobile: 0,
-//     phablet: 550,
-//     tablet: 768,
-//     desktop: 992,
-//   });
-
-//   const OnMobile = layout.is("mobile");
-//   const Desktop = layout.isAtLeast("phablet");
-
 function Home() {
+   
   return (
     <>
-    <div style={background}>
-    <div style={{textAlign: 'center', backgroundColor: '#D5D5D1'}}><h1><b>YourNextBinge</b></h1></div>
-      <div style={startContainer}>
-          <div style={greetingItem}>         
+    <div>
+    <div className="title"><b>YourNextBinge</b></div>
+      <div className="startContainer"
+    >
+          <Card className="greetingitem">
           <span><b>YourNextBinge</b> is designed to help you find the next movie
            or tv show for you to bingewatch!</span>
            <br/>
            <img className='img-responsive' src={Binge} alt="watching a show" style={{width: '50%', height: '50%'}}></img>
-          </div>
-          <div style={greetingItem}>
+          </Card>
+          <Card style={greetingItem}>
           Using this application, you can search for shows or movies that you want to watch from a variety
           of generes, or a direct search.
           <br/>
@@ -90,15 +83,15 @@ function Home() {
           <br/>
           Alternatively, if you have a particular actor/actress that you really want to see more of, you can search 
           for media that they appear in.
-          </div>
-          <div style={greetingItem}>
-            This app is powered by The Movie Database API and is built in React.
+          </Card>
+
+          <Card style={greetingItem}>
+          This app is powered by The Movie Database API and is built in React.
             <br/>
             <br/>
             You may register as a user and login, or proceed as a guest. However, proceeding as a guest
             will disable several key features
-          </div>
-          
+          </Card>
       </div>
       <div style={endContainer}>
         <div style={endItem}><button style={button}><b>Register for MyNextBinge</b></button></div>

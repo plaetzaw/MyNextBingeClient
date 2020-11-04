@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 //Pages
 import Home from './pages/home'
 import Picker from './pages/picker'
+import Test from './pages/test'
 
 //Snackbars
 
@@ -24,6 +25,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/Home" component={Home}/>
       <Route path="/Picker" component={Picker}/>
+      <Route path="/Test" component={Test}/>
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
