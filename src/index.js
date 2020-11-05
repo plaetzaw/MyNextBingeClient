@@ -10,6 +10,7 @@ import Picker from './pages/picker'
 import Test from './pages/test'
 import Login from './pages/login'
 import Register from './pages/register'
+import Movies from './pages/movies'
 
 //Snackbars
 
@@ -32,6 +33,7 @@ ReactDOM.render(
       <Route exact path="/Register" component={Register}/>
       <Route exact path="/Login" component={Login}/>
       <Route exact path="/Picker" component={Picker}/>
+      <Route exact path="/Movies" component={Movies}/>
       <Route path="/Test" component={Test}/>
     </Switch>
   </BrowserRouter>

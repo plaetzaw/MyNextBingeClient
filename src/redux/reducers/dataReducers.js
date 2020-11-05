@@ -1,9 +1,29 @@
-const { GET_FAVORITE_MOVIES, GET_FAVORITE_TVSHOWS, GET_FAVORITE_ACTORS, SET_TO_FAVORITE_MOVIES, SET_TO_FAVORITE_TVSHOWS, SET_TO_FAVORITE_ACTORS, SEARCH_BY_GENRE, SEARCH_BY_TITLE } = require("../actions/actionTypes")
+const { GET_FAVORITE_MOVIES, 
+        GET_FAVORITE_TVSHOWS, 
+        GET_FAVORITE_ACTORS, 
+        SET_TO_FAVORITE_MOVIES, 
+        SET_TO_FAVORITE_TVSHOWS, 
+        SET_TO_FAVORITE_ACTORS, 
+        SEARCH_BY_GENRE, 
+        SEARCH_BY_TITLE,
+        POPULAR_MOVIES,
+        NOW_PLAYING_MOVIES,
+        UPCOMING_MOVIES,
+        TOP_RATED_MOVIES } = require("../actions/actionTypes")
 
 const initialState = {
     loadingData: true,
     searchData: false,
     searchedMedia: [],
+
+
+    popularMovies: [],
+    nowplayingMovies: [],
+    topratedMovies: [],
+    upcomingMovies: [],
+
+
+
     favoriteMovies: [],
     favoriteTVshows: [],
     favoriteActors: [],
@@ -13,6 +33,26 @@ const initialState = {
 
 const dataReducers = (state = initialState, action) => {
     switch (action.type) {
+        case POPULAR_MOVIES:
+            return {
+                ...state,
+                popularMovies: action.payload
+            }
+        case NOW_PLAYING_MOVIES:
+            return {
+                ...state,
+                nowplayingMovies: action.payload
+            }
+        case UPCOMING_MOVIES:
+            return {
+                ...state,
+                upcomingMovies: action.payload
+            }
+        case TOP_RATED_MOVIES:
+            return {
+                ...state,
+                topratedMovies: action.payload
+            }
         case GET_FAVORITE_MOVIES: 
         return {
             ...state,
