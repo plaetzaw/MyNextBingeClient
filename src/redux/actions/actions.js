@@ -65,12 +65,12 @@ export const GetMoviesHome = () => async (dispatch) => {
   console.log("beginning chain")
   await axios.post("http://localhost:8080/popularMovies")
   .then((popularMovies) => {
-    dispatch({ type: POPULAR_MOVIES, payload: popularMovies.payload})
+    dispatch({ type: POPULAR_MOVIES, payload: popularMovies.data})
     console.log(popularMovies)
   })
   await axios.post("http://localhost:8080/nowplayingMovies")
   .then((nowplayingMovies) => {
-    dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.payload})
+    dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
     console.log(nowplayingMovies)
   })
   await axios.post("http://localhost:8080/upcomingMovies")
