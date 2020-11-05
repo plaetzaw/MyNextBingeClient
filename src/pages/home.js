@@ -1,6 +1,7 @@
 import React from 'react'
 import Binge from '../utility/images/JustOneMore.png'
 import Card from '@material-ui/core/Card'
+import { useHistory } from 'react-router-dom'
 // import { layoutGenerator } from "react-break";
 import '../utility/layout.css'
 
@@ -22,6 +23,20 @@ const greetingItem = {
 }
 
 function Home() {
+
+let history = useHistory();
+
+function navigateLogin(){
+    history.push("/login")
+}
+
+function navigateRegister(){
+    history.push("/register")
+}
+
+function navigatePicker(){
+    history.push("/picker")
+}
    
   return (
     <>
@@ -53,9 +68,9 @@ function Home() {
           </Card>
       </div>
       <div className="endContainer">
-        <div className="endItem"><button className="button"><b>Register for MyNextBinge</b></button></div>
-        <div className="endItem"><button className="button"><b>Login</b></button></div>
-        <div className="endItem"><button className="button"><b>Proceed as Guest</b></button></div>
+        <div className="endItem"><button className="button" onClick={navigateRegister}><b>Register</b></button></div>
+        <div className="endItem"><button className="button" onClick={navigateLogin}><b>Login</b></button></div>
+        <div className="endItem"><button className="button" onClick={navigatePicker}><b>Proceed as Guest</b></button></div>
       </div>
       </div>
     </>
