@@ -24,6 +24,7 @@ export const LoginUser = (userData) => (dispatch) => {
           type: SNACKBAR_SUCCESS,
           payload: "You have been logged in",
         });
+        //redirect to /picker
       } else {
         dispatch({
           type: SNACKBAR_ERROR,
