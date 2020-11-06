@@ -8,11 +8,17 @@ import { Carousel } from 'react-responsive-carousel';
 export class Movies extends Component {
 
     componentDidMount(){
-        console.log("starting?")
+        console.log("starting? ")
         this.props.GetMoviesHome();
     }
     
+
+
     render() {
+        const { data } = this.props
+        const hotMarkup = data
+        console.log(hotMarkup)
+
         return (
             <div>
                 hello

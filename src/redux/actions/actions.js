@@ -66,22 +66,18 @@ export const GetMoviesHome = () => async (dispatch) => {
   await axios.post("http://localhost:8080/popularMovies")
   .then((popularMovies) => {
     dispatch({ type: POPULAR_MOVIES, payload: popularMovies.data})
-    console.log(popularMovies)
   })
   await axios.post("http://localhost:8080/nowplayingMovies")
   .then((nowplayingMovies) => {
     dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
-    console.log(nowplayingMovies)
   })
   await axios.post("http://localhost:8080/upcomingMovies")
   .then((upcomingMovies) => {
     dispatch({ type: UPCOMING_MOVIES, payload: upcomingMovies.data})
-    console.log(upcomingMovies)
   })
   await axios.post("http://localhost:8080/topratedMovies")
   .then((topratedMovies) => {
     dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
-    console.log(topratedMovies)
   })
 }
 
