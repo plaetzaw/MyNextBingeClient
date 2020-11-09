@@ -3,12 +3,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { GetMoviesHome } from "../redux/actions/actions"
-import { Carousel } from 'react-responsive-carousel';
+// import Minicard from '../components/miniCard'
+// import { Carousel } from 'react-responsive-carousel';
 
-export class Movies extends Component {
+class Movies extends Component {
 
     componentDidMount(){
-        console.log("starting? ")
         this.props.GetMoviesHome();
     }
     
@@ -16,11 +16,27 @@ export class Movies extends Component {
 
     render() {
         const { data } = this.props
-        const hotMarkup = data
-        console.log(hotMarkup)
+        const hotData = data.popularMovies.results
+
+        // const hotMarkup = hotData.map((cards) => {
+        //     return <li>{cards.title}</li>
+        // })
+
+        const hotChecker = this.props.data.loadingData ? (<><h1>LOADING</h1></>) : (<>Test</>)
+
+
+      
+
+                     //     return <Minicard
+            //     name={cards.name}
+            //     />
+     
+
+   
 
         return (
             <div>
+                {hotChecker}
                 hello
                 whirl
             </div>

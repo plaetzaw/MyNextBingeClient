@@ -1,6 +1,6 @@
 import axios from 'axios'
 import jwtDecode from "jwt-decode";
-import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS, SNACKBAR_ERROR, SNACKBAR_CLEAR, POPULAR_MOVIES, NOW_PLAYING_MOVIES, UPCOMING_MOVIES, TOP_RATED_MOVIES} from './actionTypes'
+import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS, SNACKBAR_ERROR, SNACKBAR_CLEAR, POPULAR_MOVIES, NOW_PLAYING_MOVIES, UPCOMING_MOVIES, TOP_RATED_MOVIES, LOADING_DATA} from './actionTypes'
 
 // Set JWT Token
 export const setAuthorizationHeader = (token) => {
@@ -61,24 +61,25 @@ export const RegisterUser = (newUserData) => (dispatch) => {
     });
 };
 
-export const GetMoviesHome = () => async (dispatch) => {
+export const GetMoviesHome = () => (dispatch) => {
   console.log("beginning chain")
-  await axios.post("http://localhost:8080/popularMovies")
+  axios.post("http://localhost:8080/popularMovies")
   .then((popularMovies) => {
     dispatch({ type: POPULAR_MOVIES, payload: popularMovies.data})
+    console.log(popularMovies)
   })
-  await axios.post("http://localhost:8080/nowplayingMovies")
-  .then((nowplayingMovies) => {
-    dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
-  })
-  await axios.post("http://localhost:8080/upcomingMovies")
-  .then((upcomingMovies) => {
-    dispatch({ type: UPCOMING_MOVIES, payload: upcomingMovies.data})
-  })
-  await axios.post("http://localhost:8080/topratedMovies")
-  .then((topratedMovies) => {
-    dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
-  })
+  // await axios.post("http://localhost:8080/nowplayingMovies")
+  // .then((nowplayingMovies) => {
+  //   dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
+  // })
+  // await axios.post("http://localhost:8080/upcomingMovies")
+  // .then((upcomingMovies) => {
+  //   dispatch({ type: UPCOMING_MOVIES, payload: upcomingMovies.data})
+  // })
+  // await axios.post("http://localhost:8080/topratedMovies")
+  // .then((topratedMovies) => {
+  //   dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
+  // })
 }
 
 

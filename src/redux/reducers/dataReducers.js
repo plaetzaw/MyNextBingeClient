@@ -12,18 +12,13 @@ const { GET_FAVORITE_MOVIES,
         TOP_RATED_MOVIES } = require("../actions/actionTypes")
 
 const initialState = {
-    loadingData: true,
-    searchData: false,
+    loadingData: false,
+    dataLoaded: false,
     searchedMedia: [],
-
-
     popularMovies: [],
     nowplayingMovies: [],
     topratedMovies: [],
     upcomingMovies: [],
-
-
-
     favoriteMovies: [],
     favoriteTVshows: [],
     favoriteActors: [],
@@ -36,7 +31,8 @@ const dataReducers = (state = initialState, action) => {
         case POPULAR_MOVIES:
             return {
                 ...state,
-                popularMovies: action.payload
+                popularMovies: action.payload,
+                dataLoaded: true,
             }
         case NOW_PLAYING_MOVIES:
             return {
