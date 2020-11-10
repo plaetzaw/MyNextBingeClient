@@ -3,7 +3,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { GetMoviesHome } from "../redux/actions/actions"
-// import Minicard from '../components/miniCard'
+import MiniCard from '../components/miniCard'
+import '../utility/layout.css'
 // import { Carousel } from 'react-responsive-carousel';
 
 class Movies extends Component {
@@ -18,28 +19,38 @@ class Movies extends Component {
         const { data } = this.props
         const hotData = data.popularMovies.results
 
-        // const hotMarkup = hotData.map((cards) => {
-        //     return <li>{cards.title}</li>
-        // })
+        const hotMap = hotData.map((cards) => {
+            return <MiniCard
+            name={cards.name}
+            overview={cards.overview}
+            poster_path={cards.poster_path}
+            backdrop_path={cards.backdrop_path}
+            />
+        })
 
-        const hotChecker = this.props.data.loadingData ? (<><h1>LOADING</h1></>) : (<>Test</>)
+            // <li><h3>{cards.title}</h3>
+            // <br/>
+            // {cards.overview}
+            // </li>
+             
+      
+
+        const hotMarkup = this.props.data.loadingData ? (<><h1>{hotMap}</h1></>) : (<>butts</>)
 
 
       
 
-                     //     return <Minicard
-            //     name={cards.name}
-            //     />
+                 
      
 
    
 
         return (
-            <div>
-                {hotChecker}
-                hello
-                whirl
+            
+            <div className="movieDisplay">
+                {hotMarkup}
             </div>
+       
         )
     }
 }
