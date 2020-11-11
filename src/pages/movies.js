@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { GetMoviesHome } from "../redux/actions/actions"
 import MiniCard from '../components/miniCard'
+import LinearProgress from '@material-ui/core/LinearProgress';
 import '../utility/layout.css'
 // import { Carousel } from 'react-responsive-carousel';
 
@@ -24,50 +25,35 @@ class Movies extends Component {
            if (this.props.data.dataLoaded === true){
             hotMap = hotData.map((cards) => {
                 return <MiniCard
-                name={cards.name}
+                title={cards.title}
                 overview={cards.overview}
                 poster_path={cards.poster_path}
                 backdrop_path={cards.backdrop_path}
                 />
             })
            } else {
-               hotMap = <h1>Loading</h1>
+               hotMap = <>
+               <h1>Loading</h1>
+               </>
            }
 
 
-        // const hotMap = await hotData.map((cards) => {
-        //     return <MiniCard
-        //     name={cards.name}
-        //     overview={cards.overview}
-        //     poster_path={cards.poster_path}
-        //     backdrop_path={cards.backdrop_path}
-        //     />
-        // })
+
 
             // <li><h3>{cards.title}</h3>
             // <br/>
             // {cards.overview}
             // </li>
-             
-      
-            console.log(this.props.data.dataLoaded)
-
-        const hotMarkup = !this.props.data.dataLoaded ? (<><h1>booty</h1></>) : (<><h1>{hotMap}</h1></>)
-
-
-      
-
-                 
-     
-
-   
+        const hotMarkup = !this.props.data.dataLoaded ? (<><LinearProgress/><h1>Loading</h1><LinearProgress/></>) : (<><h1>{hotMap}</h1></>)
 
         return (
-            
-            <div className="movieDisplay">
+            <>
+            <div 
+            className="movieDisplay"
+            >
                 {hotMarkup}
-            </div>
-       
+            </div> 
+            </> 
         )
     }
 }

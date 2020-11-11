@@ -7,23 +7,23 @@ const miniCard = (props) => {
   return (
     <>
       <Card
-      width="400px"
-      height="400px"
+      width="300px"
+      height="300px"
       >
         <CardMedia
         component="img"
         alt={title}
-        height={'300px'}
-        width={'300px'}
+        height='100px'
+        width='100px'
         src={`https://image.tmdb.org/t/p/original/${poster_path}`}
         />
-          <h1>{title}</h1>
+          <b>{title}</b>
           <i>{overview}</i>
           <CardMedia
         component="img"
         alt={title}
-        height={'300px'}
-        width={'300px'}
+        height='100px'
+        width='100px'
         src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
         />
       </Card>
