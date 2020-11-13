@@ -13,8 +13,6 @@ class Movies extends Component {
     async componentDidMount(){
         this.props.GetMoviesHome();
     }
-    
-
 
     render() {
         console.log(this.props.data.dataLoaded)
@@ -37,13 +35,6 @@ class Movies extends Component {
                </>
            }
 
-
-
-
-            // <li><h3>{cards.title}</h3>
-            // <br/>
-            // {cards.overview}
-            // </li>
         const hotMarkup = !this.props.data.dataLoaded ? (<><LinearProgress/><h1>Loading</h1><LinearProgress/></>) : (<><h1>{hotMap}</h1></>)
 
         return (
