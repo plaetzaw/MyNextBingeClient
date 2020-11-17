@@ -86,15 +86,15 @@ export const GetTVShowsHome =  () => async (dispatch) => {
   console.log("starting chain")
   await axios.post("http://localhost:8080/popularShows")
   .then((popularShows) => {
-    dispatch({ type: POPULAR_SHOWS, payload: popularShows.payload})
+    dispatch({ type: POPULAR_SHOWS, payload: popularShows.data})
   })
   await axios.post("http://localhost:8080/topratedShows")
   .then((topratedShows) => {
-    dispatch({ type: TOP_RATED_MOVIES, payload: topratedShows.payload})
+    dispatch({ type: TOP_RATED_SHOWS, payload: topratedShows.data})
   })
   await axios.post("http://localhost:8080/airingtodayShows")
   .then((airingtodayShows) => {
-    dispatch({ type: AIRING_TODAY_SHOWS, payload: airingtodayShows.payload})
+    dispatch({ type: AIRING_TODAY_SHOWS, payload: airingtodayShows.data})
   })
 }
 
@@ -102,7 +102,7 @@ export const GetTVShowsHome =  () => async (dispatch) => {
     console.log("starting chain")
     await axios.post("http://localhost:8080/popularPeople")
     .then((popularPeople) => {
-      dispatch({ type: POPULAR_PEOPLE, payload: popularPeople.payload})
+      dispatch({ type: POPULAR_PEOPLE, payload: popularPeople.data})
     })
   }
   
