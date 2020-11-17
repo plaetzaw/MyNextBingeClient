@@ -9,7 +9,11 @@ const { GET_FAVORITE_MOVIES,
         POPULAR_MOVIES,
         NOW_PLAYING_MOVIES,
         UPCOMING_MOVIES,
-        TOP_RATED_MOVIES } = require("../actions/actionTypes")
+        TOP_RATED_MOVIES,
+        POPULAR_SHOWS,
+        TOP_RATED_SHOWS,
+        AIRING_TODAY_SHOWS, 
+        POPULAR_PEOPLE} = require("../actions/actionTypes")
 
 const initialState = {
     loadingData: false,
@@ -19,6 +23,10 @@ const initialState = {
     nowplayingMovies: [],
     topratedMovies: [],
     upcomingMovies: [],
+    popularShows: [],
+    topratedShows: [],
+    airingtodayShows: [],
+    popularPeople: [],
     favoriteMovies: [],
     favoriteTVshows: [],
     favoriteActors: [],
@@ -48,6 +56,28 @@ const dataReducers = (state = initialState, action) => {
             return {
                 ...state,
                 topratedMovies: action.payload,
+                dataLoaded: true,
+            }
+        case POPULAR_SHOWS:
+            return {
+                ...state,
+                popularShows: action.payload,
+            }
+        case TOP_RATED_SHOWS:
+            return {
+                ...state,
+                topratedShows: action.payload,
+            }
+        case AIRING_TODAY_SHOWS:
+            return {
+                ...state,
+                airingtodayShows: action.payload,
+                dataLoaded: true,
+            }
+        case POPULAR_PEOPLE:
+            return {
+                ...state,
+                popularPeople: action.payload,
                 dataLoaded: true,
             }
         case GET_FAVORITE_MOVIES: 

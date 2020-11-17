@@ -1,6 +1,6 @@
 import axios from 'axios'
 import jwtDecode from "jwt-decode";
-import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS, SNACKBAR_ERROR, SNACKBAR_CLEAR, POPULAR_MOVIES, NOW_PLAYING_MOVIES, UPCOMING_MOVIES, TOP_RATED_MOVIES, LOADING_DATA} from './actionTypes'
+import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS, SNACKBAR_ERROR, SNACKBAR_CLEAR, POPULAR_MOVIES, NOW_PLAYING_MOVIES, UPCOMING_MOVIES, TOP_RATED_MOVIES, POPULAR_SHOWS, TOP_RATED_SHOWS, AIRING_TODAY_SHOWS, POPULAR_PEOPLE} from './actionTypes'
 
 // Set JWT Token
 export const setAuthorizationHeader = (token) => {
@@ -81,6 +81,32 @@ export const GetMoviesHome =  () => async (dispatch) => {
     dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
   })
 }
+
+export const GetTVShowsHome =  () => async (dispatch) => {
+  console.log("starting chain")
+  await axios.post("http://localhost:8080/popularShows")
+  .then((popularShows) => {
+    dispatch({ type: POPULAR_SHOWS, payload: popularShows.payload})
+  })
+  await axios.post("http://localhost:8080/topratedShows")
+  .then((topratedShows) => {
+    dispatch({ type: TOP_RATED_MOVIES, payload: topratedShows.payload})
+  })
+  await axios.post("http://localhost:8080/airingtodayShows")
+  .then((airingtodayShows) => {
+    dispatch({ type: AIRING_TODAY_SHOWS, payload: airingtodayShows.payload})
+  })
+}
+
+  export const GetPeopleHome =  () => async (dispatch) => {
+    console.log("starting chain")
+    await axios.post("http://localhost:8080/popularPeople")
+    .then((popularPeople) => {
+      dispatch({ type: POPULAR_PEOPLE, payload: popularPeople.payload})
+    })
+  }
+  
+
 
 
 //SnackbarSuccess

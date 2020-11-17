@@ -19,21 +19,24 @@ const MiniCard = (props) => {
     return (
     <>
       <Card
-      width="400px"
+      width="500px"
+      height="500px"
       >
       <b>{title}</b>
 
         <CardMedia
         component="img"
         alt={title}
-        height='200px'
-        // width='100px'
+        height='300px'
+        width='300px'
         src={`https://image.tmdb.org/t/p/original/${urlPath}`}
         />
          <Button onClick={toggle}>  
           {buttonMarkup}
           </Button>
-          {/* <i>{overview}</i> */}
+          <Button>Add To Favorites</Button>
+          <Button>More Information</Button>
+
       </Card>
     </>
   )
