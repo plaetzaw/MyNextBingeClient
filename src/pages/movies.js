@@ -36,6 +36,9 @@ class Movies extends Component {
         console.log(this.props.data.dataLoaded)
         const { data } = this.props
         const hotData = data.popularMovies.results
+        const nowPlayingData = data.nowplayingMovies.results
+        const topRatedData = data.topratedMovies.results
+        const upcomingData = data.upcomingMovies.results
          
         let hotMap;
            if (this.props.data.dataLoaded === true){
@@ -45,7 +48,6 @@ class Movies extends Component {
                 overview={cards.overview}
                 poster_path={cards.poster_path}
                 backdrop_path={cards.backdrop_path}
-                draggable={true}
                 />
             })
            } else {
@@ -55,14 +57,84 @@ class Movies extends Component {
                </>
            }
 
-        const hotMarkup = !this.props.data.dataLoaded ? (<><LinearProgress/><h1>Loading</h1><LinearProgress/></>) : (<><h1>{hotMap}</h1></>)
+           let topRated;
+           if (this.props.data.dataLoaded === true){
+            topRated = topRatedData.map((cards) => {
+                return <MiniCard
+                title={cards.title}
+                overview={cards.overview}
+                poster_path={cards.poster_path}
+                backdrop_path={cards.backdrop_path}
+                />
+            })
+           } else {
+               topRated = 
+               <>
+               <LinearProgress/><h1>Loading</h1><LinearProgress/>
+               </>
+           }
 
-        return (
+           let nowPlaying;
+           if (this.props.data.dataLoaded === true){
+            nowPlaying = nowPlayingData.map((cards) => {
+                return <MiniCard
+                title={cards.title}
+                overview={cards.overview}
+                poster_path={cards.poster_path}
+                backdrop_path={cards.backdrop_path}
+                />
+            })
+           } else {
+               nowPlaying = 
+               <>
+               <LinearProgress/><h1>Loading</h1><LinearProgress/>
+               </>
+           }
+
+           let upcoming;
+           if (this.props.data.dataLoaded === true){
+            upcoming = upcomingData.map((cards) => {
+                return <MiniCard
+                title={cards.title}
+                overview={cards.overview}
+                poster_path={cards.poster_path}
+                backdrop_path={cards.backdrop_path}
+                />
+            })
+           } else {
+               upcoming = 
+               <>
+               <LinearProgress/><h1>Loading</h1><LinearProgress/>
+               </>
+           }
+
+        // const hotMarkup = !this.props.data.dataLoaded ? (<><LinearProgress/><h1>Loading</h1><LinearProgress/></>) : (<><h1>{hotMap}</h1></>)
+
+return (
 <>
+<h1>Hot Movies</h1>
 <Carousel
   responsive={responsive}
 >
 {hotMap}
+</Carousel>
+<h1>Movies Now Playing!</h1>
+<Carousel
+  responsive={responsive}
+>
+{nowPlaying}
+</Carousel>
+<h1>Top Rated</h1>
+<Carousel
+  responsive={responsive}
+>
+{topRated}
+</Carousel>
+<h1>Upcoming</h1>
+<Carousel
+  responsive={responsive}
+>
+{upcoming}
 </Carousel>
 </> 
         )

@@ -61,25 +61,25 @@ export const RegisterUser = (newUserData) => (dispatch) => {
     });
 };
 
-export const GetMoviesHome = () => (dispatch) => {
+export const GetMoviesHome =  () => async (dispatch) => {
   console.log("beginning chain")
-  axios.post("http://localhost:8080/popularMovies")
+  await axios.post("http://localhost:8080/popularMovies")
   .then((popularMovies) => {
     dispatch({ type: POPULAR_MOVIES, payload: popularMovies.data})
     console.log(popularMovies)
   })
-  // await axios.post("http://localhost:8080/nowplayingMovies")
-  // .then((nowplayingMovies) => {
-  //   dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
-  // })
-  // await axios.post("http://localhost:8080/upcomingMovies")
-  // .then((upcomingMovies) => {
-  //   dispatch({ type: UPCOMING_MOVIES, payload: upcomingMovies.data})
-  // })
-  // await axios.post("http://localhost:8080/topratedMovies")
-  // .then((topratedMovies) => {
-  //   dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
-  // })
+  await axios.post("http://localhost:8080/nowplayingMovies")
+  .then((nowplayingMovies) => {
+    dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
+  })
+  await axios.post("http://localhost:8080/upcomingMovies")
+  .then((upcomingMovies) => {
+    dispatch({ type: UPCOMING_MOVIES, payload: upcomingMovies.data})
+  })
+  await axios.post("http://localhost:8080/topratedMovies")
+  .then((topratedMovies) => {
+    dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
+  })
 }
 
 

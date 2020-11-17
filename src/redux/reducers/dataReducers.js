@@ -32,7 +32,7 @@ const dataReducers = (state = initialState, action) => {
             return {
                 ...state,
                 popularMovies: action.payload,
-                dataLoaded: true,
+                
             }
         case NOW_PLAYING_MOVIES:
             return {
@@ -47,7 +47,8 @@ const dataReducers = (state = initialState, action) => {
         case TOP_RATED_MOVIES:
             return {
                 ...state,
-                topratedMovies: action.payload
+                topratedMovies: action.payload,
+                dataLoaded: true,
             }
         case GET_FAVORITE_MOVIES: 
         return {
