@@ -51,7 +51,7 @@ class Movies extends Component {
            } else {
                hotMap = 
                <>
-               <h1>Loading</h1>
+               <LinearProgress/><h1>Loading</h1><LinearProgress/>
                </>
            }
 
@@ -62,7 +62,7 @@ class Movies extends Component {
 <Carousel
   responsive={responsive}
 >
-{hotMarkup}
+{hotMap}
 </Carousel>
 </> 
         )
