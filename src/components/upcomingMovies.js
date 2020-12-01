@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { GetMoviesHome } from "../redux/actions/actions"
-import MiniCard from '../components/miniCard'
+import { GetUpcomingMovies } from "../redux/actions/actions"
+import MiniCard from './miniCard'
 import LinearProgress from '@material-ui/core/LinearProgress';
 // import '../utility/layout.css'
 import Carousel from "react-multi-carousel";
@@ -11,7 +11,7 @@ import "react-multi-carousel/lib/styles.css";
 class Movies extends Component {
 
     componentDidMount(){
-        this.props.GetMoviesHome();
+        this.props.GetUpcomingMovies();
     }
     
     render() {
@@ -71,7 +71,7 @@ return (
 }
 
 Movies.propTypes = {
-    GetMoviesHome: PropTypes.func.isRequired,
+    GetUpcomingMovies: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
 }
 
@@ -80,7 +80,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    GetMoviesHome,
+    GetUpcomingMovies,
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(Movies)

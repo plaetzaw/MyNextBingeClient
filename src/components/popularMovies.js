@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { GetMoviesHome } from "../redux/actions/actions"
-import MiniCard from '../components/miniCard'
+import { GetPopularMovies } from "../redux/actions/actions"
+import MiniCard from './miniCard'
 import LinearProgress from '@material-ui/core/LinearProgress';
-// import '../utility/layout.css'
+import '../utility/layout.css'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 class Movies extends Component {
 
     componentDidMount(){
-        this.props.GetMoviesHome();
+        this.props.GetPopularMovies();
     }
     
     render() {
@@ -35,12 +35,12 @@ class Movies extends Component {
 
         console.log(this.props.data.dataLoaded)
         const { data } = this.props
-        const hotData = data.popularMovies.results
+        const popularData = data.popularMovies.results
   
          
-        let hotMap;
+        let popular;
            if (this.props.data.dataLoaded === true){
-            hotMap = hotData.map((cards) => {
+            popular = popularData.map((cards) => {
                 return <MiniCard
                 title={cards.title}
                 overview={cards.overview}
@@ -49,7 +49,7 @@ class Movies extends Component {
                 />
             })
            } else {
-               hotMap = 
+               popular = 
                <>
                <LinearProgress/><h1>Loading</h1><LinearProgress/>
                </>
@@ -57,21 +57,23 @@ class Movies extends Component {
 
           
 return (
-<>
-<h1>Hot Movies</h1>
+  <>
+{/* <div className="movieDisplay"> */}
+<h1>Popular Movies</h1>
 <Carousel
   responsive={responsive}
 >
-{hotMap}
+{popular}
 </Carousel>
 
-</> 
+{/* </div>  */}
+</>
         )
     }
 }
 
 Movies.propTypes = {
-    GetMoviesHome: PropTypes.func.isRequired,
+    GetPopularMovies: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
 }
 
@@ -80,7 +82,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    GetMoviesHome,
+    GetPopularMovies,
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(Movies)

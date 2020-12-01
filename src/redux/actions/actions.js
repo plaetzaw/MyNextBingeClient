@@ -61,6 +61,36 @@ export const RegisterUser = (newUserData) => (dispatch) => {
     });
 };
 
+export const GetPopularMovies =  () => async (dispatch) => {
+  await axios.post("http://localhost:8080/popularMovies")
+  .then((popularMovies) => {
+    dispatch({ type: POPULAR_MOVIES, payload: popularMovies.data})
+    console.log(popularMovies)
+  })
+}
+
+export const GetNowPlayingMovies =  () => async (dispatch) => {
+  await axios.post("http://localhost:8080/nowplayingMovies")
+  .then((nowplayingMovies) => {
+    dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
+  })
+}
+
+export const GetUpcomingMovies =  () => async (dispatch) => {
+  await axios.post("http://localhost:8080/upcomingMovies")
+  .then((upcomingMovies) => {
+    dispatch({ type: UPCOMING_MOVIES, payload: upcomingMovies.data})
+  })
+}
+
+export const GetTopRatedMovies =  () => async (dispatch) => {
+  await axios.post("http://localhost:8080/topratedMovies")
+  .then((topratedMovies) => {
+    dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
+  })
+}
+
+
 export const GetMoviesHome =  () => async (dispatch) => {
   console.log("beginning chain")
   await axios.post("http://localhost:8080/popularMovies")
