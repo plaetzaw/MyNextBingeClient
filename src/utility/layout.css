@@ -94,8 +94,11 @@
 }
 
 .movieDisplay {
-  /* background-color: black; */
+  background-color: #278ee3;
   /* width: 50%; */
-  height: "500px";
-  background-color: "grey";
+  /* height: "500px"; */
+}
+
+.centerText {
+  text-align: center;
 }

@@ -40,7 +40,7 @@ class Movies extends Component {
      
 
            let upcoming;
-           if (this.props.data.dataLoaded === true){
+           if (this.props.data.upcomingLoaded === true){
             upcoming = upcomingData.map((cards) => {
                 return <MiniCard
                 title={cards.title}

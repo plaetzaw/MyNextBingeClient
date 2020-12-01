@@ -40,7 +40,7 @@ class Movies extends Component {
          
     
            let topRated;
-           if (this.props.data.dataLoaded === true){
+           if (this.props.data.topratedLoaded === true){
             topRated = topRatedData.map((cards) => {
                 return <MiniCard
                 title={cards.title}

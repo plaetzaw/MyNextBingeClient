@@ -42,7 +42,7 @@ class Movies extends Component {
 
 
            let nowPlaying;
-           if (this.props.data.dataLoaded === true){
+           if (this.props.data.nowplayingLoaded === true){
             nowPlaying = nowPlayingData.map((cards) => {
                 return <MiniCard
                 title={cards.title}
@@ -61,12 +61,14 @@ class Movies extends Component {
          
 return (
 <>
-<h1>Movies Now Playing!</h1>
+<div className="movieDisplay">
+<div className="centerText"><h1>Now Playing</h1></div>
 <Carousel
   responsive={responsive}
 >
 {nowPlaying}
 </Carousel>
+</div>
 </> 
         )
     }

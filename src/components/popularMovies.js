@@ -39,7 +39,7 @@ class Movies extends Component {
   
          
         let popular;
-           if (this.props.data.dataLoaded === true){
+           if (this.props.data.popularLoaded === true){
             popular = popularData.map((cards) => {
                 return <MiniCard
                 title={cards.title}
@@ -57,16 +57,16 @@ class Movies extends Component {
 
           
 return (
-  <>
-{/* <div className="movieDisplay"> */}
-<h1>Popular Movies</h1>
+<>
+<div className="movieDisplay">
+<div className="centerText"><h1>Popular Movies</h1></div>
 <Carousel
   responsive={responsive}
 >
 {popular}
 </Carousel>
 
-{/* </div>  */}
+</div> 
 </>
         )
     }

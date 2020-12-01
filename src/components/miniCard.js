@@ -2,6 +2,7 @@ import React from 'react'
 import Card from '@material-ui/core/Card'
 import { CardMedia } from '@material-ui/core'
 import { Button } from '@material-ui/core';
+import "../utility/layout.css"
 
 
 const MiniCard = (props) => {
@@ -19,16 +20,16 @@ const MiniCard = (props) => {
     return (
     <>
       <Card
-      width="500px"
+      // width="500px"
       height="500px"
       >
-      <b>{title}</b>
+      <div className="centerText"><b>{title}</b></div>
 
         <CardMedia
         component="img"
         alt={title}
         height='300px'
-        width='300px'
+        // width='300px'
         src={`https://image.tmdb.org/t/p/original/${urlPath}`}
         />
          <Button onClick={toggle}>  

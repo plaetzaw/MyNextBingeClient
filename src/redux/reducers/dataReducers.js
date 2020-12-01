@@ -20,9 +20,13 @@ const initialState = {
     dataLoaded: false,
     searchedMedia: [],
     popularMovies: [],
+    popularLoaded: false,
     nowplayingMovies: [],
+    nowplayingLoaded: false,
     topratedMovies: [],
+    topratedLoaded: false,
     upcomingMovies: [],
+    upcomingLoaded: false,
     popularShows: [],
     topratedShows: [],
     airingtodayShows: [],
@@ -40,23 +44,27 @@ const dataReducers = (state = initialState, action) => {
             return {
                 ...state,
                 popularMovies: action.payload,
+                popularLoaded: true,
+
                 
             }
         case NOW_PLAYING_MOVIES:
             return {
                 ...state,
-                nowplayingMovies: action.payload
+                nowplayingMovies: action.payload,
+                nowplayingLoaded: true,
             }
         case UPCOMING_MOVIES:
             return {
                 ...state,
-                upcomingMovies: action.payload
+                upcomingMovies: action.payload,
+                upcomingLoaded: true,
             }
         case TOP_RATED_MOVIES:
             return {
                 ...state,
                 topratedMovies: action.payload,
-                dataLoaded: true,
+                topratedLoaded: true,
             }
         case POPULAR_SHOWS:
             return {
