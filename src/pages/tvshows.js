@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { GetTVShowsHome } from "../redux/actions/actions"
-import MiniCard from '../components/miniCard'
+import MiniCard from '../components/miniCardShows'
 import LinearProgress from '@material-ui/core/LinearProgress';
 // import '../utility/layout.css'
 import Carousel from "react-multi-carousel";
@@ -13,6 +13,11 @@ export class TVShows extends Component {
     componentDidMount(){
         this.props.GetTVShowsHome();
     }
+
+    // fullInformation = async () => {
+    //   await this.props.getFullInformation(this.props.movies.id);
+    //   this.props.history.push(`/${this.props.movies.id}`)
+    // }
 
     render() {           
           const responsive = {
@@ -42,7 +47,7 @@ export class TVShows extends Component {
            if (this.props.data.dataLoaded === true){
             hotMap = hotData.map((cards) => {
                 return <MiniCard
-                title={cards.title}
+                name={cards.name}
                 overview={cards.overview}
                 poster_path={cards.poster_path}
                 backdrop_path={cards.backdrop_path}
