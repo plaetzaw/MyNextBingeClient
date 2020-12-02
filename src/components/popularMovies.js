@@ -14,6 +14,11 @@ class Movies extends Component {
         this.props.GetPopularMovies();
     }
     
+    handleMovie = async () => {
+      console.log('Sending movie ID' + this.props.popularMovies.id)
+      await this.props.GetMovieInfo(this.props.popularMovies.id)
+    }
+
     render() {
         const responsive = {
             desktop: {
@@ -33,7 +38,6 @@ class Movies extends Component {
             }
           };
 
-        console.log(this.props.data.dataLoaded)
         const { data } = this.props
         const popularData = data.popularMovies.results
   
@@ -42,6 +46,7 @@ class Movies extends Component {
            if (this.props.data.popularLoaded === true){
             popular = popularData.map((cards) => {
                 return <MiniCard
+                id={cards.id}
                 title={cards.title}
                 overview={cards.overview}
                 poster_path={cards.poster_path}

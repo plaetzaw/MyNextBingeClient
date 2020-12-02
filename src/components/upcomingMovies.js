@@ -33,7 +33,6 @@ class Movies extends Component {
             }
           };
 
-        console.log(this.props.data.dataLoaded)
         const { data } = this.props
         const upcomingData = data.upcomingMovies.results
          

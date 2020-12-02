@@ -11,6 +11,8 @@ class Movies extends Component {
      <>
     <PopularMovies/>
     <NowPlayingMovies/>
+    <TopRatedMovies/>
+    <UpcomingMovies/>
 </>
 
    )

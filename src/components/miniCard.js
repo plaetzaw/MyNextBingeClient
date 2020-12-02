@@ -1,12 +1,22 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'
 import { CardMedia } from '@material-ui/core'
 import { Button } from '@material-ui/core';
 import "../utility/layout.css"
+import { GetMovieInfo } from '../redux/actions/actions';
 
 
 const MiniCard = (props) => {
-    const {title, overview, poster_path, backdrop_path} = props
+  const {id, title, overview, poster_path, backdrop_path} = props
+
+   function handleMovie (){
+     console.log("I have been clicked" + "ID:" + id)
+      GetMovieInfo(id)
+      // props.history.push(`/movies/${id}`)
+    }
+
 
     const [isToggled, setIsToggled] = React.useState('true')
 
@@ -20,8 +30,8 @@ const MiniCard = (props) => {
     return (
     <>
       <Card
-      // width="500px"
-      height="500px"
+      // width="50px"
+      // height="50px"
       >
       <div className="centerText"><b>{title}</b></div>
 
@@ -36,11 +46,24 @@ const MiniCard = (props) => {
           {buttonMarkup}
           </Button>
           <Button>Add To Favorites</Button>
-          <Button>More Information</Button>
+          <Button onClick={handleMovie}>More Information</Button>
 
       </Card>
     </>
   )
 }
 
-export default MiniCard
+MiniCard.propTypes = {
+  GetMovieInfo: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  data: state.data,
+})
+
+const mapDispatchToProps = {
+  GetMovieInfo,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MiniCard) 
