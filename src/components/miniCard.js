@@ -1,21 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useHistory } from "react-router-dom";
 import Card from '@material-ui/core/Card'
 import { CardMedia } from '@material-ui/core'
-import { Button } from '@material-ui/core';
+import { Button } from '@material-ui/core'
 import "../utility/layout.css"
-import { GetMovieInfo } from '../redux/actions/actions';
+import { GetMovieInfo } from '../redux/actions/actions'
 
 
 const MiniCard = (props) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+
   const {id, title, overview, poster_path, backdrop_path} = props
 
    function handleMovie (){
      console.log("I have been clicked" + "ID:" + id)
-      GetMovieInfo(id)
+     let idObj = {
+       id: id
+     }
+      dispatch(GetMovieInfo(idObj));
       console.log("Why aren't you FIRING?")
-      // props.history.push(`/movies/${id}`)
+      history.push(`/movies/${title}`)
     }
 
 

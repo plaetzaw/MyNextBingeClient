@@ -95,6 +95,7 @@ export const GetMovieInfo = (id) => async (dispatch) => {
   await axios.post("http://localhost:8080/fullmovieInfo", id)
   .then((movieInfo) => {
     dispatch({ type: SINGLE_MOVIE, payload: movieInfo.data})
+    console.log("Dispatch finished")
   })
 }
 
