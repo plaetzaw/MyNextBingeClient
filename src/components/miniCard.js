@@ -14,6 +14,7 @@ const MiniCard = (props) => {
    function handleMovie (){
      console.log("I have been clicked" + "ID:" + id)
       GetMovieInfo(id)
+      console.log("Why aren't you FIRING?")
       // props.history.push(`/movies/${id}`)
     }
 
