@@ -2,17 +2,20 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import PopularMovies from '../components/popularMovies'
-import NowPlayingMovies from '../components/nowplayingMovies'
-import TopRatedMovies from '../components/topratedMovies'
-import UpcomingMovies from '../components/upcomingMovies'
+import { LOADING_DATA } from '../redux/actions/actionTypes'
+import FullMovieCard from "../components/fullMovieCard"
+// import NowPlayingMovies from '../components/nowplayingMovies'
+// import TopRatedMovies from '../components/topratedMovies'
+// import UpcomingMovies from '../components/upcomingMovies'
 class Movies extends Component {
  render(){
+let fullChecker = this.props.data.dataLoaded ? <FullMovieCard/> : <PopularMovies/> 
    return(
      <>
-    <PopularMovies/>
-    <NowPlayingMovies/>
-    <TopRatedMovies/>
-    <UpcomingMovies/>
+    {fullChecker}
+    {/* <NowPlayingMovies/> */}
+    {/* <TopRatedMovies/> */}
+    {/* <UpcomingMovies/> */}
 </>
 
    )

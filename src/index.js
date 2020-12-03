@@ -13,6 +13,7 @@ import Register from './pages/register'
 import Movies from './pages/movies'
 import TVShows from './pages/tvshows'
 import People from './pages/people'
+import FullMovie from './components/fullMovieCard'
 
 //Snackbars
 
@@ -27,6 +28,9 @@ import store from "./redux/store"
 
 //Authentication
 
+//
+
+
 ReactDOM.render(
   <Provider store={store}>
   <BrowserRouter>
@@ -35,9 +39,12 @@ ReactDOM.render(
       <Route exact path="/Register" component={Register}/>
       <Route exact path="/Login" component={Login}/>
       <Route exact path="/Picker" component={Picker}/>
-      <Route exact path="/Movies" component={Movies}/>
-      <Route exact path="/TVShows" component={TVShows}/>
-      <Route exact path="/People" component={People}/>
+      <Route path="/Movies" component={Movies}/>
+      <Route path='/FullMovieInfo' component={FullMovie}/>
+      {/* <Route path="/Movies/:id" component={Movies}/>
+      REDO THIS ROUTING LATER */}
+      <Route path="/TVShows" component={TVShows}/>
+      <Route path="/People" component={People}/>
       <Route path="/Test" component={Test}/>
     </Switch>
   </BrowserRouter>

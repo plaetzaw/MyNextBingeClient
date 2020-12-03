@@ -91,12 +91,15 @@ export const GetTopRatedMovies =  () => async (dispatch) => {
 
 //Full Movie Information
 export const GetMovieInfo = (id) => async (dispatch) => {
-  console.log("Action activated - checking for movie" + id)
+  console.log("Action activated - checking for movie")
+  console.log(id)
   await axios.post("http://localhost:8080/fullmovieInfo", id)
-  .then((movieInfo) => {
-    dispatch({ type: SINGLE_MOVIE, payload: movieInfo.data})
+  .then((singleMovie) => {
+    console.log(singleMovie)
+    dispatch({ type: SINGLE_MOVIE, payload: singleMovie.data})
     console.log("Dispatch finished")
   })
+  .catch((err) => console.log(err))
 }
 
 // export const GetMoviesHome =  () => async (dispatch) => {

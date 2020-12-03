@@ -23,8 +23,9 @@ const MiniCard = (props) => {
        id: id
      }
       dispatch(GetMovieInfo(idObj));
-      console.log("Why aren't you FIRING?")
-      history.push(`/movies/${title}`)
+      // history.push(`/movies/${id}`)
+      // history.push(`/FullMovieInfo`)
+      console.log("moved to /FullInfoPage")
     }
 
 
@@ -52,10 +53,10 @@ const MiniCard = (props) => {
         // width='300px'
         src={`https://image.tmdb.org/t/p/original/${urlPath}`}
         />
-         <Button onClick={toggle}>  
+         {/* <Button onClick={toggle}>  
           {buttonMarkup}
           </Button>
-          <Button>Add To Favorites</Button>
+          <Button>Add To Favorites</Button> */}
           <Button onClick={handleMovie}>More Information</Button>
 
       </Card>
