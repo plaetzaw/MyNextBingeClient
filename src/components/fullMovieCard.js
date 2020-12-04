@@ -33,8 +33,12 @@ cardData.spoken_languages.forEach((item) => {
 })
 
 
+//If I'm going to do it this way, we'll add a CLose feature
+//This will trigger when clicked, set the state of DataLoaded 
+//back to false, and will swap back to the feed component
   return (
     <>
+   
       <Card>
       <div className="centerText"><b>{cardData.title}</b></div>
       <CardMedia
