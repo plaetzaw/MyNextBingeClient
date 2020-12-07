@@ -14,7 +14,7 @@ import "../utility/layout.css"
 class FullInfoCard extends Component {
  render(){
    const {data} = this.props;
-   const cardData = data.singleMovie;
+   const cardData = data.singleMovie.details;
   // const {backdrop_path, belongs_to_collection, budget, genres, 
   // homepage, original_title, overview, popularity, poster_path, 
   // production_companies, production_countries, release_date, revenue, runtime, 

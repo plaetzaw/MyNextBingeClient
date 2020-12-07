@@ -1,6 +1,6 @@
 import axios from 'axios'
 import jwtDecode from "jwt-decode";
-import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS, SNACKBAR_ERROR, SNACKBAR_CLEAR, POPULAR_MOVIES, NOW_PLAYING_MOVIES, UPCOMING_MOVIES, TOP_RATED_MOVIES, POPULAR_SHOWS, TOP_RATED_SHOWS, AIRING_TODAY_SHOWS, POPULAR_PEOPLE, SINGLE_MOVIE} from './actionTypes'
+import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS, SNACKBAR_ERROR, SNACKBAR_CLEAR, POPULAR_MOVIES, NOW_PLAYING_MOVIES, UPCOMING_MOVIES, TOP_RATED_MOVIES, POPULAR_SHOWS, TOP_RATED_SHOWS, AIRING_TODAY_SHOWS, POPULAR_PEOPLE, SINGLE_MOVIE, SINGLE_MOVIE_RECOMMENDATIONS, SINGLE_MOVIE_CAST, SINGLE_MOVIE_VIDEOS} from './actionTypes'
 
 // Set JWT Token
 export const setAuthorizationHeader = (token) => {
@@ -98,6 +98,22 @@ export const GetMovieInfo = (id) => async (dispatch) => {
     dispatch({ type: SINGLE_MOVIE, payload: singleMovie.data})
   })
   .catch((err) => console.log(err))
+  await axios.post("http://localhost:8080/fullmovieRecommendations", id)
+  .then((recommendations) => {
+    dispatch({ type: SINGLE_MOVIE_RECOMMENDATIONS, payload: recommendations.data})
+  })
+  .catch((err) => console.log(err))
+  await axios.post("http://localhost:8080/fullmovieCredits", id)
+  .then((cast) => {
+    dispatch({ type: SINGLE_MOVIE_CAST, payload: cast.data})
+  })
+  .catch((err) => console.log(err))
+  await axios.post("http://localhost:8080/fullmovieVideos", id)
+  .then((videos) => {
+    dispatch({ type: SINGLE_MOVIE_VIDEOS, payload: videos.data})
+  })
+  .catch((err) => console.log(err))
+
 }
 
 // export const GetMoviesHome =  () => async (dispatch) => {

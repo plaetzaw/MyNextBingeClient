@@ -14,7 +14,11 @@ const { GET_FAVORITE_MOVIES,
         TOP_RATED_SHOWS,
         AIRING_TODAY_SHOWS, 
         POPULAR_PEOPLE,
-        SINGLE_MOVIE} = require("../actions/actionTypes")
+        SINGLE_MOVIE,
+        SINGLE_MOVIE_RECOMMENDATIONS,
+        SINGLE_MOVIE_CAST,
+        SINGLE_MOVIE_VIDEOS,
+    } = require("../actions/actionTypes")
 
 const initialState = {
     //General
@@ -25,7 +29,12 @@ const initialState = {
     searchedMedia: [],
 
     //Movies
-    singleMovie: [],
+    singleMovie: {
+        details: [],
+        cast: [],
+        recommendations: [],
+        videos: [],
+    },
     popularMovies: [],
     popularLoaded: false,
     nowplayingMovies: [],
@@ -58,8 +67,35 @@ const dataReducers = (state = initialState, action) => {
         case SINGLE_MOVIE:
             return {
                 ...state,
-                singleMovie: action.payload,
+                singleMovie: {
+                    ...state.singleMovie,
+                    details: action.payload,
+                },
+            }
+        case SINGLE_MOVIE_RECOMMENDATIONS:
+            return {
+                ...state,
+                singleMovie: {
+                ...state.singleMovie,
+                recommendations: action.payload,
+                }
+            }
+        case SINGLE_MOVIE_CAST:
+            return {
+                ...state,
+                singleMovie: {
+                    ...state.singleMovie,
+                    cast: action.payload
+                }
+            }
+        case SINGLE_MOVIE_VIDEOS:
+            return {
+                ...state,
                 dataLoaded: true,
+                singleMovie: {
+                    ...state.singleMovie,
+                    videos: action.payload
+                }
             }
         case POPULAR_MOVIES:
             return {
