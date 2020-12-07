@@ -18,6 +18,7 @@ const { GET_FAVORITE_MOVIES,
         SINGLE_MOVIE_RECOMMENDATIONS,
         SINGLE_MOVIE_CAST,
         SINGLE_MOVIE_VIDEOS,
+        SINGLE_MOVIE_WATCHPROVIDERS
     } = require("../actions/actionTypes")
 
 const initialState = {
@@ -34,6 +35,7 @@ const initialState = {
         cast: [],
         recommendations: [],
         videos: [],
+        watchproviders: [],
     },
     popularMovies: [],
     popularLoaded: false,
@@ -70,7 +72,7 @@ const dataReducers = (state = initialState, action) => {
                 singleMovie: {
                     ...state.singleMovie,
                     details: action.payload,
-                },
+                }
             }
         case SINGLE_MOVIE_RECOMMENDATIONS:
             return {
@@ -91,10 +93,18 @@ const dataReducers = (state = initialState, action) => {
         case SINGLE_MOVIE_VIDEOS:
             return {
                 ...state,
-                dataLoaded: true,
                 singleMovie: {
                     ...state.singleMovie,
                     videos: action.payload
+                }
+            }
+        case SINGLE_MOVIE_WATCHPROVIDERS:
+            return {
+                ...state,
+                dataLoaded: true,
+                singleMovie: {
+                    ...state.singleMovie,
+                    watchproviders: action.payload
                 }
             }
         case POPULAR_MOVIES:
