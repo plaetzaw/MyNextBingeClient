@@ -50,6 +50,7 @@ const MiniCard = (props) => {
         component="img"
         alt={title}
         height='300px'
+        objectFit="contain"
         // width='300px'
         src={`https://image.tmdb.org/t/p/original/${urlPath}`}
         />

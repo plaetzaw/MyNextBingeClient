@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 // import { useDispatch } from 'react-redux'
 // import { useHistory } from "react-router-dom";
 import {Card, CardMedia, CardActionArea, CardContent } from '@material-ui/core'
@@ -20,7 +22,7 @@ class FullInfoCard extends Component {
   
  let genres = [] 
  cardData.genres.forEach((item) => {
-genres.push(item.name)
+genres.push("|" + " " + item.name + " " + "|")
   })
 
   
@@ -39,33 +41,39 @@ cardData.spoken_languages.forEach((item) => {
   return (
     <>
    
-      <Card>
-      <div className="centerText"><b>{cardData.title}</b></div>
+      <Card 
+      className="movieCardFull"
+      >
+          <CardContent>
+      <div className="centerText"><b><h1>{cardData.title}</h1></b>
+      <i><h4>"{cardData.tagline}"</h4></i>
+      </div>
       <CardMedia
+        className="poster"
         component="img"
         alt={cardData.title}
-        // height='80%'
-        // width='300px'
         src={`https://image.tmdb.org/t/p/original/${cardData.poster_path}`}
         />
-      Overview: {cardData.overview}
-    <br/>
-      Tagline:  {cardData.tagline}
+      
+      <br/>
+      <div className="centerText"> <h3>{cardData.overview}</h3>
       <br/>
       Homepage: {cardData.homepage}
-      {genres}
-      {spoken}
-  
-  
+      <br/>
+      Genres: {genres}
+      <br/>
+      <div className="moviecardInfoContainer">
+      <div className="movieCardItem1">Reported Revenue: ${cardData.revenue}</div>
+      
+      <div className="movieCardItem2">
+      Released: {cardData.release_date}</div>
+      </div> 
+      <div className="movieCardItem3">
+      Runtime: {cardData.runtime} minutes
+      </div>
 
-
-        {/* <CardMedia
-        component="img"
-        alt={title}
-        height='300px'
-        // width='300px'
-        src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-        /> */}
+      </div>
+      </CardContent>
       </Card>
     </>
   )
