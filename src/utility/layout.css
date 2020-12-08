@@ -105,8 +105,8 @@
   align-self: center;
   object-fit: contain;
   /* max-height: 100%; */
-  max-width: 50%;
-  width: 50%;
+  max-width: 75%;
+  width: 75%;
   margin: auto;
 }
 
@@ -141,6 +141,30 @@
   width: 99%;
   margin: auto;
 }
+
+.castList {
+  display: flex;
+  flex-flow: column;
+}
+
+@media screen and (min-width: 481px) {
+  .castList {
+    flex-flow: row;
+  }
+}
+
+/* .startContainer {
+  background-color: #278ee3;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column;
+}
+
+@media screen and (min-width: 481px) {
+  .startContainer {
+    flex-flow: row;
+  }
+} */
 
 /* .endContainer {
   background-color: #d5d5d1;

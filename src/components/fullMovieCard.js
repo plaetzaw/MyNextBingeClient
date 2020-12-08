@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 // import { useDispatch } from 'react-redux'
 // import { useHistory } from "react-router-dom";
 import {Card, CardMedia, CardActionArea, CardContent } from '@material-ui/core'
@@ -15,6 +16,10 @@ class FullInfoCard extends Component {
  render(){
    const {data} = this.props;
    const cardData = data.singleMovie.details;
+   const Rec = data.singleMovie.recommendations;
+   const Cast = data.singleMovie.cast;
+   const Video = data.singleMovie.video;
+   const WatchProviders = data.singleMovie.watchproviders;
   // const {backdrop_path, belongs_to_collection, budget, genres, 
   // homepage, original_title, overview, popularity, poster_path, 
   // production_companies, production_countries, release_date, revenue, runtime, 
@@ -32,6 +37,19 @@ console.log(genres)
 let spoken = []
 cardData.spoken_languages.forEach((item) => {
   spoken.push(item.name, item.english_name)
+})
+
+let castRender = Cast.cast.map((cast) => {
+  return <Card
+  width="300px"
+  >
+    <img
+    src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+    height="300px"
+    maxWidth="300px"
+    />
+    <li><i>{cast.name}</i> as <b>{cast.character}</b></li>
+  </Card>
 })
 
 
@@ -71,10 +89,23 @@ cardData.spoken_languages.forEach((item) => {
       <div className="movieCardItem3">
       Runtime: {cardData.runtime} minutes
       </div>
-
+    
       </div>
+      <div
+      className="castList"
+      >
+        {castRender}
+      </div>
+   
+     
+      <div>lorem</div>
+      <div>lorem</div>
+
+
       </CardContent>
+      
       </Card>
+     
     </>
   )
     }
