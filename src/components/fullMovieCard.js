@@ -62,7 +62,7 @@ let castRender = Cast.cast.map((cast) => {
       <Card 
       className="movieCardFull"
       >
-          <CardContent>
+      <CardContent>
       <div className="centerText"><b><h1>{cardData.title}</h1></b>
       <i><h4>"{cardData.tagline}"</h4></i>
       </div>
