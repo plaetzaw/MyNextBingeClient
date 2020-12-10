@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import Placeholder from "../utility/images/placeholder.png"
+import 'primeflex/primeflex.css';
+
 // import { useDispatch } from 'react-redux'
 // import { useHistory } from "react-router-dom";
 import {Card, CardMedia, CardActionArea, CardContent } from '@material-ui/core'
@@ -39,16 +41,26 @@ cardData.spoken_languages.forEach((item) => {
   spoken.push(item.name, item.english_name)
 })
 
+
+
+
+
+
 let castRender = Cast.cast.map((cast) => {
+  let phChecker = cast.profile_path === null ?   (Placeholder) : (`https://image.tmdb.org/t/p/original/${cast.profile_path}`)
+
+
   return <Card
   width="300px"
   >
     <img
-    src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+    src={phChecker}
+    // src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
     height="300px"
     maxWidth="300px"
     />
-    <li><i>{cast.name}</i> as <b>{cast.character}</b></li>
+    <li className="centerText"><i>{cast.name}</i> as <br/>
+    <b>{cast.character}</b></li>
   </Card>
 })
 
@@ -58,7 +70,7 @@ let castRender = Cast.cast.map((cast) => {
 //back to false, and will swap back to the feed component
   return (
     <>
-   
+
       <Card 
       className="movieCardFull"
       >
@@ -91,16 +103,16 @@ let castRender = Cast.cast.map((cast) => {
       </div>
     
       </div>
-      <div
-      className="castList"
-      >
-        {castRender}
-      </div>
+      
    
      
       <div>lorem</div>
       <div>lorem</div>
-
+      <div
+      className="p-grid"
+      >
+        {castRender}
+      </div>
 
       </CardContent>
       
