@@ -22,15 +22,13 @@ class FullInfoCard extends Component {
    const Cast = data.singleMovie.cast;
    const Video = data.singleMovie.video;
    const WatchProviders = data.singleMovie.watchproviders;
-  // const {backdrop_path, belongs_to_collection, budget, genres, 
-  // homepage, original_title, overview, popularity, poster_path, 
-  // production_companies, production_countries, release_date, revenue, runtime, 
-  // status, tagline, title, video, vote_average, vote_count, id} = this.props.data.singleMovie
+
   
  let genres = [] 
  cardData.genres.forEach((item) => {
 genres.push("|" + " " + item.name + " " + "|")
   })
+
 
   
 
@@ -41,15 +39,8 @@ cardData.spoken_languages.forEach((item) => {
   spoken.push(item.name, item.english_name)
 })
 
-
-
-
-
-
 let castRender = Cast.cast.map((cast) => {
   let phChecker = cast.profile_path === null ?   (Placeholder) : (`https://image.tmdb.org/t/p/original/${cast.profile_path}`)
-
-
   return <Card
   width="300px"
   >
@@ -64,6 +55,19 @@ let castRender = Cast.cast.map((cast) => {
   </Card>
 })
 
+let recRender = Rec.results.map((recs) => {
+  return <Card>
+    <img
+    src={`https://image.tmdb.org/t/p/original/${recs.poster_path}`}
+    height="400px"
+    />
+    <br/>
+    <b>{recs.title}</b>
+
+  </Card>
+})
+
+let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline}"</h3></i>)
 
 //If I'm going to do it this way, we'll add a CLose feature
 //This will trigger when clicked, set the state of DataLoaded 
@@ -76,7 +80,7 @@ let castRender = Cast.cast.map((cast) => {
       >
       <CardContent>
       <div className="centerText"><b><h1>{cardData.title}</h1></b>
-      <i><h4>"{cardData.tagline}"</h4></i>
+      {tagChecker}
       </div>
       <CardMedia
         className="poster"
@@ -106,13 +110,23 @@ let castRender = Cast.cast.map((cast) => {
       
    
      
-      <div>lorem</div>
-      <div>lorem</div>
+   
+      <h1 className="centerText">Cast</h1>
       <div
       className="p-grid"
       >
         {castRender}
       </div>
+
+      <h1 className="centerText">Recommendations based on {cardData.title}</h1>
+      <div
+      className="p-grid"
+      >
+      {recRender}
+      </div>
+
+
+
 
       </CardContent>
       
