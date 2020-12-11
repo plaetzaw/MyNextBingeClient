@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Placeholder from "../utility/images/placeholder.png"
+// import Typography from '@material-ui/core/Typography';
+// import Paper from '@material-ui/core/Paper';
+import Placeholder from "../utility/images/200x340.png"
 import 'primeflex/primeflex.css';
-
 // import { useDispatch } from 'react-redux'
 // import { useHistory } from "react-router-dom";
 import {Card, CardMedia, CardActionArea, CardContent } from '@material-ui/core'
 // import { Button } from '@material-ui/core'
 import "../utility/layout.css"
-// import { GetMovieInfo } from '../redux/actions/actions'
 
 
 class FullInfoCard extends Component {
@@ -42,13 +40,11 @@ cardData.spoken_languages.forEach((item) => {
 let castRender = Cast.cast.map((cast) => {
   let phChecker = cast.profile_path === null ?   (Placeholder) : (`https://image.tmdb.org/t/p/original/${cast.profile_path}`)
   return <Card
-  width="300px"
   >
     <img
     src={phChecker}
-    // src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
     height="300px"
-    maxWidth="300px"
+    // width="300px"
     />
     <li className="centerText"><i>{cast.name}</i> as <br/>
     <b>{cast.character}</b></li>
@@ -56,13 +52,16 @@ let castRender = Cast.cast.map((cast) => {
 })
 
 let recRender = Rec.results.map((recs) => {
+  let ppChecker = recs.poster_path === null ? (Placeholder) : (`https://image.tmdb.org/t/p/original/${recs.poster_path}`)
   return <Card>
     <img
-    src={`https://image.tmdb.org/t/p/original/${recs.poster_path}`}
+    src={ppChecker}
+    // src={`https://image.tmdb.org/t/p/original/${recs.poster_path}`}
     height="400px"
+    maxWidth="300px"
     />
     <br/>
-    <b>{recs.title}</b>
+    <p className="centerText"> <b>{recs.title}</b></p>
 
   </Card>
 })
@@ -74,7 +73,8 @@ let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline
 //back to false, and will swap back to the feed component
   return (
     <>
-
+    <div
+    className="movieCardContainer">
       <Card 
       className="movieCardFull"
       >
@@ -131,7 +131,7 @@ let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline
       </CardContent>
       
       </Card>
-     
+      </div>
     </>
   )
     }
