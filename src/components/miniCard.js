@@ -8,6 +8,7 @@ import { CardMedia } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 import "../utility/layout.css"
 import { GetMovieInfo } from '../redux/actions/actions'
+import { Link } from 'react-router-dom'
 
 
 const MiniCard = (props) => {
@@ -23,9 +24,9 @@ const MiniCard = (props) => {
        id: id
      }
       dispatch(GetMovieInfo(idObj));
-      // history.push(`/movies/${id}`)
+      history.push(`/movies/${title}`)
       // history.push(`/FullMovieInfo`)
-      console.log("moved to /FullInfoPage")
+      // console.log("moved to /FullInfoPage")
     }
 
 
@@ -58,7 +59,7 @@ const MiniCard = (props) => {
           {buttonMarkup}
           </Button>
           <Button>Add To Favorites</Button> */}
-          <Button onClick={handleMovie}>More Information</Button>
+          <Button component={Link} onClick={handleMovie}>More Information</Button>
 
       </Card>
     </>

@@ -12,7 +12,8 @@ class Movies extends Component {
 let fullChecker = this.props.data.dataLoaded ? <FullMovieCard/> : <PopularMovies/> 
    return(
      <>
-    {fullChecker}
+     {fullChecker}
+     {/* <PopularMovies/> */}
     {/* <NowPlayingMovies/> */}
     {/* <TopRatedMovies/> */}
     {/* <UpcomingMovies/> */}

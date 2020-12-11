@@ -40,12 +40,11 @@ ReactDOM.render(
       <Route exact path="/Login" component={Login}/>
       <Route exact path="/Picker" component={Picker}/>
       <Route path="/Movies" component={Movies}/>
-      <Route path='/FullMovieInfo' component={FullMovie}/>
-      {/* <Route path="/Movies/:id" component={Movies}/>
-      REDO THIS ROUTING LATER */}
+      {/* <Route path='/FullMovieInfo' component={FullMovie}/> */}
+      <Route path="/Movies/:id" component={FullMovie}/>
       <Route path="/TVShows" component={TVShows}/>
       <Route path="/People" component={People}/>
-      <Route path="/Test" component={Test}/>
+      {/* <Route path="/Test" component={Test}/> */}
     </Switch>
   </BrowserRouter>
   </Provider>,
