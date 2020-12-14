@@ -29,7 +29,6 @@ const MiniCard = (props) => {
       // console.log("moved to /FullInfoPage")
     }
 
-
     const [isToggled, setIsToggled] = React.useState('true')
 
     const toggle = React.useCallback(() => setIsToggled(!isToggled), [isToggled, setIsToggled])

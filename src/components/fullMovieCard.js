@@ -13,6 +13,7 @@ import "../utility/layout.css"
 
 
 class FullInfoCard extends Component {
+
  render(){
    const {data} = this.props;
    const cardData = data.singleMovie.details;
@@ -20,6 +21,7 @@ class FullInfoCard extends Component {
    const Cast = data.singleMovie.cast;
    const Video = data.singleMovie.video;
    const WatchProviders = data.singleMovie.watchproviders;
+
 
   
  let genres = [] 
