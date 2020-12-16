@@ -152,39 +152,9 @@
   display: flex;
   flex-flow: column;
 }
-
+/* 
 @media screen and (min-width: 481px) {
   .castList {
     flex-flow: row;
   }
-}
-
-/* .startContainer {
-  background-color: #278ee3;
-  display: flex;
-  justify-content: space-around;
-  flex-flow: column;
-}
-
-@media screen and (min-width: 481px) {
-  .startContainer {
-    flex-flow: row;
-  }
-} */
-
-/* .endContainer {
-  background-color: #d5d5d1;
-  width: 100%;
-  display: flex;
-  flex-flow: row-wrap;
-  justify-content: space-around;
-}
-
-.endItem {
-  display: flex;
-  height: 6rem;
-  width: 6rem;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
 } */

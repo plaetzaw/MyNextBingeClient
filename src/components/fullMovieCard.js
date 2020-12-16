@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-// import Typography from '@material-ui/core/Typography';
-// import Paper from '@material-ui/core/Paper';
 import Placeholder from "../utility/images/200x340.png"
 import 'primeflex/primeflex.css';
-// import { useDispatch } from 'react-redux'
-// import { useHistory } from "react-router-dom";
 import {Card, CardMedia, CardActionArea, CardContent } from '@material-ui/core'
-// import { Button } from '@material-ui/core'
 import "../utility/layout.css"
+import { ExitFullInfo } from '../redux/actions/actions';
 
 
 class FullInfoCard extends Component {
+returnToMovies = (e) => {
+  e.preventDefault();
+  console.log("I have been clicked")
+  this.props.ExitFullInfo()
+}
 
  render(){
    const {data} = this.props;
@@ -58,10 +59,8 @@ let recRender = Rec.results.map((recs) => {
   return <Card>
     <img
     src={ppChecker}
-    // src={`https://image.tmdb.org/t/p/original/${recs.poster_path}`}
     height="400px"
-    maxWidth="300px"
-    />
+     />
     <br/>
     <p className="centerText"> <b>{recs.title}</b></p>
 
@@ -81,6 +80,7 @@ let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline
       className="movieCardFull"
       >
       <CardContent>
+        <button onClick={this.returnToMovies}>X</button>
       <div className="centerText"><b><h1>{cardData.title}</h1></b>
       {tagChecker}
       </div>
@@ -140,7 +140,7 @@ let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline
 }
 
 FullInfoCard.propTypes = {
-//   GetMovieInfo: PropTypes.func.isRequired,
+  ExitFullInfo: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
 }
 
@@ -148,8 +148,8 @@ const mapStateToProps = (state) => ({
   data: state.data,
 })
 
-// const mapDispatchToProps = {
-//   null,
-// }
+const mapDispatchToProps = {
+  ExitFullInfo
+}
 
-export default connect(mapStateToProps, null)(FullInfoCard) 
+export default connect(mapStateToProps, mapDispatchToProps)(FullInfoCard) 

@@ -24,7 +24,7 @@ const MiniCard = (props) => {
        id: id
      }
       dispatch(GetMovieInfo(idObj));
-      history.push(`/movies/${title}`)
+      history.push(`/movies/${id}`)
       // history.push(`/FullMovieInfo`)
       // console.log("moved to /FullInfoPage")
     }

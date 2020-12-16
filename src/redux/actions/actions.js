@@ -4,7 +4,8 @@ import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS,
   SNACKBAR_ERROR, SNACKBAR_CLEAR, POPULAR_MOVIES, NOW_PLAYING_MOVIES, UPCOMING_MOVIES, 
   TOP_RATED_MOVIES, POPULAR_SHOWS, TOP_RATED_SHOWS, AIRING_TODAY_SHOWS, POPULAR_PEOPLE, 
   SINGLE_MOVIE, SINGLE_MOVIE_RECOMMENDATIONS, SINGLE_MOVIE_CAST, SINGLE_MOVIE_VIDEOS,
-SINGLE_MOVIE_WATCHPROVIDERS} from './actionTypes'
+SINGLE_MOVIE_WATCHPROVIDERS,
+EXIT_ITEM} from './actionTypes'
 
 // Set JWT Token
 export const setAuthorizationHeader = (token) => {
@@ -64,6 +65,11 @@ export const RegisterUser = (newUserData) => (dispatch) => {
       }
     });
 };
+//Reset to Search
+export const ExitFullInfo = (dispatch) => {
+  dispatch({ type: EXIT_ITEM })
+}
+
 //Movie Components
 export const GetPopularMovies =  () => async (dispatch) => {
   await axios.post("http://localhost:8080/popularMovies")
@@ -187,3 +193,4 @@ export const SnackbarError = (message) => (dispatch) => {
 export const SnackbarClear = (dispatch) => {
   dispatch({ type: SNACKBAR_CLEAR });
 };
+

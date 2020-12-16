@@ -18,7 +18,8 @@ const { GET_FAVORITE_MOVIES,
         SINGLE_MOVIE_RECOMMENDATIONS,
         SINGLE_MOVIE_CAST,
         SINGLE_MOVIE_VIDEOS,
-        SINGLE_MOVIE_WATCHPROVIDERS
+        SINGLE_MOVIE_WATCHPROVIDERS,
+        EXIT_ITEM,
     } = require("../actions/actionTypes")
 
 const initialState = {
@@ -66,6 +67,11 @@ const initialState = {
 
 const dataReducers = (state = initialState, action) => {
     switch (action.type) {
+        case EXIT_ITEM: 
+            return {
+                ...state,
+                dataLoaded: false
+            }
         case SINGLE_MOVIE:
             return {
                 ...state,
@@ -73,7 +79,7 @@ const dataReducers = (state = initialState, action) => {
                     ...state.singleMovie,
                     details: action.payload,
                 }
-            }
+            }    
         case SINGLE_MOVIE_RECOMMENDATIONS:
             return {
                 ...state,

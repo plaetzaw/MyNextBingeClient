@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import PopularMovies from '../components/popularMovies'
-import { LOADING_DATA } from '../redux/actions/actionTypes'
 import FullMovieCard from "../components/fullMovieCard"
 // import NowPlayingMovies from '../components/nowplayingMovies'
 // import TopRatedMovies from '../components/topratedMovies'
