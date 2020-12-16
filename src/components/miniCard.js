@@ -9,6 +9,7 @@ import { Button } from '@material-ui/core'
 import "../utility/layout.css"
 import { GetMovieInfo } from '../redux/actions/actions'
 import { Link } from 'react-router-dom'
+import  fullInfoCard  from '../components/fullMovieCard'
 
 
 const MiniCard = (props) => {
@@ -16,7 +17,7 @@ const MiniCard = (props) => {
   const history = useHistory();
 
 
-  const {id, title, overview, poster_path, backdrop_path} = props
+  const {id, title, poster_path, backdrop_path} = props
 
    function handleMovie (){
      console.log("I have been clicked" + "ID:" + id)
@@ -41,24 +42,24 @@ const MiniCard = (props) => {
     return (
     <>
       <Card
-      // width="50px"
-      // height="50px"
+      className="miniCard"
       >
-      <div className="centerText"><b>{title}</b></div>
+      <p className="centerText"><b>{title}</b></p>
 
         <CardMedia
+        className="posterMini"
         component="img"
         alt={title}
-        height='300px'
-        objectFit="contain"
-        // width='300px'
         src={`https://image.tmdb.org/t/p/original/${urlPath}`}
         />
          {/* <Button onClick={toggle}>  
           {buttonMarkup}
           </Button>
           <Button>Add To Favorites</Button> */}
-          <Button component={Link} onClick={handleMovie}>More Information</Button>
+          <span><Button 
+          // component={fullInfoCard} 
+          onClick={handleMovie}>
+            More Information</Button></span>
 
       </Card>
     </>
