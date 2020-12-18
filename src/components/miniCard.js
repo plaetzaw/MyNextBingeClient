@@ -59,7 +59,7 @@ const MiniCard = (props) => {
           <span><Button 
           // component={fullInfoCard} 
           onClick={handleMovie}>
-            More Information</Button></span>
+            View Full Details</Button></span>
 
       </Card>
     </>
