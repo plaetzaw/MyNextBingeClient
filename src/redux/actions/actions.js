@@ -66,7 +66,7 @@ export const RegisterUser = (newUserData) => (dispatch) => {
     });
 };
 //Reset to Search
-export const ExitFullInfo = (dispatch) => {
+export const ExitFullInfo = () => (dispatch) => {
   dispatch({ type: EXIT_ITEM })
 }
 

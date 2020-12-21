@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Placeholder from "../utility/images/200x340.png"
 import 'primeflex/primeflex.css';
-import {Card, CardMedia, CardActionArea, CardContent } from '@material-ui/core'
+import {Card, CardMedia, CardContent, Paper } from '@material-ui/core'
 import "../utility/layout.css"
 import { ExitFullInfo } from '../redux/actions/actions';
 
@@ -27,7 +28,7 @@ returnToMovies = (e) => {
   
  let genres = [] 
  cardData.genres.forEach((item) => {
-genres.push("|" + " " + item.name + " " + "|")
+genres.push(" " + item.name + "," + " ")
   })
 
 
@@ -80,39 +81,54 @@ let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline
       className="movieCardFull"
       >
       <CardContent>
-        <button onClick={this.returnToMovies}>X</button>
+        <button 
+        component={Link}
+        to="/movies"
+        onClick={this.returnToMovies}
+        >
+          X</button>
       <div className="centerText"><b><h1>{cardData.title}</h1></b>
       {tagChecker}
+      <div className="centerText"><h4>Genres: {genres}</h4></div>
+
       </div>
+      <div className="p-grid">
+      <Paper className="p-col-12">
       <CardMedia
         className="poster"
         component="img"
         alt={cardData.title}
         src={`https://image.tmdb.org/t/p/original/${cardData.poster_path}`}
         />
+      </Paper>
+      </div>
+   
+    
       
       <br/>
       <div className="centerText"> <h3>{cardData.overview}</h3>
       <br/>
-      Homepage: {cardData.homepage}
       <br/>
-      Genres: {genres}
       <br/>
       <div className="moviecardInfoContainer">
-      <div className="movieCardItem1">Reported Revenue: ${cardData.revenue}</div>
       
-      <div className="movieCardItem2">
-      Released: {cardData.release_date}</div>
-      </div> 
-      <div className="movieCardItem3">
+      <div className="p-grid">
+      <Paper className="p-col-3">
+      Reported Revenue: ${cardData.revenue}
+      </Paper>
+      <Paper className="p-col-3">
+      Release Date: {cardData.release_date}
+      </Paper>
+      <Paper className="p-col-3">
       Runtime: {cardData.runtime} minutes
+      </Paper>
+      <Paper className="p-col-3">
+       <a href={`${cardData.homepage}`}>{cardData.title} Homepage</a>
+      </Paper>
       </div>
-    
+      </div> 
       </div>
-      
-   
-     
-   
+
       <h1 className="centerText">Cast</h1>
       <div
       className="p-grid"
