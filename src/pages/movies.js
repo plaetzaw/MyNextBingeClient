@@ -5,7 +5,7 @@ import FullMovieCard from '../components/fullMovieCard'
 import PopularMovies from '../components/popularMovies'
 // import NowPlayingMovies from '../components/nowplayingMovies'
 // import TopRatedMovies from '../components/topratedMovies'
-import UpcomingMovies from '../components/upcomingMovies'
+// import UpcomingMovies from '../components/upcomingMovies'
 
 class Movies extends Component {
  render(){

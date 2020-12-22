@@ -38,14 +38,17 @@ const initialState = {
         videos: [],
         watchproviders: [],
     },
-    popularMovies: [],
+
+    movies: {
+        popularMovies: [],
+    },
     popularLoaded: false,
-    nowplayingMovies: [],
-    nowplayingLoaded: false,
-    topratedMovies: [],
-    topratedLoaded: false,
-    upcomingMovies: [],
-    upcomingLoaded: false,
+    // nowplayingMovies: [],
+    // nowplayingLoaded: false,
+    // topratedMovies: [],
+    // topratedLoaded: false,
+    // upcomingMovies: [],
+    // upcomingLoaded: false,
 
     //TV Shows
     popularShows: [],
@@ -116,8 +119,11 @@ const dataReducers = (state = initialState, action) => {
         case POPULAR_MOVIES:
             return {
                 ...state,
-                popularMovies: action.payload,
                 popularLoaded: true,                
+                movies: {
+                    ...state.movies,
+                    popularMovies: action.payload,
+                },
             }
         case NOW_PLAYING_MOVIES:
             return {

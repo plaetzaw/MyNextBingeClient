@@ -141,8 +141,8 @@ let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) 
       <Paper className="p-col-3">
       Runtime: {cardData.runtime} minutes
       </Paper>
-      <Paper className="p-col-3">
         {homeChecker}
+      <Paper className="p-col-3">
        {/* <a href={`${cardData.homepage}`}>{cardData.title} Homepage</a> */}
       </Paper>
       </div>
