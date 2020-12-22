@@ -20,7 +20,6 @@ class Movies extends Component {
     }
 
     render() {
-      console.log(this.props.data.dataLoaded)
         const responsive = {
             desktop: {
               breakpoint: { max: 3000, min: 1024 },

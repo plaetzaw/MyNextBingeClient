@@ -16,13 +16,14 @@ returnToMovies = (e) => {
   this.props.ExitFullInfo()
 }
 
-viewSimilarMovie = (e) => {
-  e.preventDefault();
-  console.log("Swapping to similar movie")
-  let id = this.props.data.singleMovie.recommendations.id;
-  console.log(id)
-  this.props.GetMovieInfo(this.props.data.singleMovie.recommendations.id)
-}
+// viewSimilarMovie = (e) => {
+  // e.preventDefault();
+  // console.log("Swapping to similar movie")
+  // console.log(this)
+  // let id = this.props.data.singleMovie.recommendations;
+  // console.log(id)
+  // this.props.GetMovieInfo()
+// }
 
  render(){
    const {data} = this.props;
@@ -71,7 +72,15 @@ let recRender = Rec.results.map((recs) => {
     height="400px"
      />
     <br/>
-    <p className="centerText"> <Paper onClick={this.viewSimilarMovie}><b>{recs.title}</b></Paper></p>
+    <p className="centerText"> 
+    <Paper onClick={() => {
+           let idObj = {
+             id: recs.id
+           } 
+           console.log(idObj)
+           this.props.GetMovieInfo(idObj)
+         }}
+    ><b>{recs.title}</b></Paper></p>
 
   </Card>
 })
@@ -173,7 +182,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  ExitFullInfo
+  ExitFullInfo, GetMovieInfo
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FullInfoCard) 
