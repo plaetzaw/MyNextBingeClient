@@ -6,7 +6,7 @@ import Placeholder from "../utility/images/200x340.png"
 import 'primeflex/primeflex.css';
 import {Card, CardMedia, CardContent, Paper } from '@material-ui/core'
 import "../utility/layout.css"
-import { ExitFullInfo } from '../redux/actions/actions';
+import { ExitFullInfo, GetMovieInfo } from '../redux/actions/actions';
 
 
 class FullInfoCard extends Component {
@@ -14,6 +14,14 @@ returnToMovies = (e) => {
   e.preventDefault();
   console.log("I have been clicked")
   this.props.ExitFullInfo()
+}
+
+viewSimilarMovie = (e) => {
+  e.preventDefault();
+  console.log("Swapping to similar movie")
+  let id = this.props.data.singleMovie.recommendations.id;
+  console.log(id)
+  this.props.GetMovieInfo(this.props.data.singleMovie.recommendations.id)
 }
 
  render(){
@@ -63,7 +71,7 @@ let recRender = Rec.results.map((recs) => {
     height="400px"
      />
     <br/>
-    <p className="centerText"> <b>{recs.title}</b></p>
+    <p className="centerText"> <Paper onClick={this.viewSimilarMovie}><b>{recs.title}</b></Paper></p>
 
   </Card>
 })

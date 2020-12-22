@@ -103,9 +103,8 @@
 .movieCardFull {
   justify-content: center;
   align-self: center;
-  object-fit: contain;
-  width: 75%;
-  margin: auto;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .centerText {
@@ -117,11 +116,10 @@
 }
 
 .poster {
+  display: flex;
   justify-content: center;
   align-self: center;
-  padding: 10px;
-  max-width: 400px;
-  object-fit: scale-down;
+  /* max-width: 75%; */
 }
 
 .movieCardContainer {
@@ -133,28 +131,11 @@
   flex-flow: row-wrap;
 }
 
-.movieCardItem1 {
-  background-color: #278ee3;
-  width: 25%;
-  margin: auto;
-}
-
-.movieCardItem2 {
-  background-color: #278ee3;
-  width: 75%;
-  margin: auto;
-}
-
-.movieCardItem3 {
-  background-color: #278ee3;
-  width: 99%;
-  margin: auto;
-}
-
 .castList {
   display: flex;
   flex-flow: column;
 }
+
 /* 
 @media screen and (min-width: 481px) {
   .castList {
