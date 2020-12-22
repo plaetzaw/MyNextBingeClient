@@ -87,6 +87,8 @@ let recRender = Rec.results.map((recs) => {
 
 let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline}"</h3></i>)
 
+let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) : (<a href={`${cardData.homepage}`}>{cardData.title} Homepage</a>)
+
 //If I'm going to do it this way, we'll add a CLose feature
 //This will trigger when clicked, set the state of DataLoaded 
 //back to false, and will swap back to the feed component
@@ -140,7 +142,8 @@ let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline
       Runtime: {cardData.runtime} minutes
       </Paper>
       <Paper className="p-col-3">
-       <a href={`${cardData.homepage}`}>{cardData.title} Homepage</a>
+        {homeChecker}
+       {/* <a href={`${cardData.homepage}`}>{cardData.title} Homepage</a> */}
       </Paper>
       </div>
       </div> 
