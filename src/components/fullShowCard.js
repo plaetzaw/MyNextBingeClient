@@ -73,6 +73,9 @@ let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline
 
 let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) : (<a href={`${cardData.homepage}`}>{cardData.name} Homepage</a>)
 
+let nextEpChecker = cardData.next_episode_to_air === null ? (<>Next Episode Airdate Not Set</>) : (<>Next Episode Airing: {cardData.next_episode_to_air}</>)
+
+let productionChecker = cardData.in_production === true ? (<>Series in Production</>) : (<>Series no longer in Production</>)
 //If I'm going to do it this way, we'll add a CLose feature
 //This will trigger when clicked, set the state of DataLoaded 
 //back to false, and will swap back to the feed component
@@ -116,16 +119,22 @@ let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) 
       <div className="moviecardInfoContainer">
       
       <div className="p-grid">
-      <Paper className="p-col-3">
+      <Paper className="p-col-4">
       First Episdoe Aired: {cardData.first_air_date}
       </Paper>
-      <Paper className="p-col-3">
+      <Paper className="p-col-4">
       Last Episode Aired: {cardData.last_air_date}
       </Paper>
-      <Paper className="p-col-3">
+      <Paper className="p-col-4">
+      {nextEpChecker}
+      </Paper>
+      <Paper className="p-col-4">
+      {productionChecker}
+      </Paper>
+      <Paper className="p-col-4">
       Episode run time: {cardData.episode_run_time[0]} minutes
       </Paper>
-      <Paper className="p-col-3">
+      <Paper className="p-col-4">
       {homeChecker}
       </Paper>
       </div>
