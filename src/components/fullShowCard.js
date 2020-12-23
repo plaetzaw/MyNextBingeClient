@@ -73,7 +73,7 @@ let tagChecker = cardData.tagline === "" ?  (<></>) : (<i><h3>"{cardData.tagline
 
 let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) : (<a href={`${cardData.homepage}`}>{cardData.name} Homepage</a>)
 
-let nextEpChecker = cardData.next_episode_to_air === null ? (<>Next Episode Airdate Not Set</>) : (<>Next Episode Airing: {cardData.next_episode_to_air}</>)
+let nextEpChecker = cardData.next_episode_to_air === null ? (<>Next Episode Airing: Not Set</>) : (<>Next Episode Airing: {cardData.next_episode_to_air}</>)
 
 let productionChecker = cardData.in_production === true ? (<>Series in Production</>) : (<>Series no longer in Production</>)
 //If I'm going to do it this way, we'll add a CLose feature

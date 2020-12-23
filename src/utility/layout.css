@@ -119,6 +119,8 @@
   display: flex;
   justify-content: center;
   align-self: center;
+  /* width: 50px; */
+  /* height: 50%; */
   /* max-width: 75%; */
 }
 
