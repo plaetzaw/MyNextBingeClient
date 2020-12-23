@@ -174,6 +174,7 @@ const dataReducers = (state = initialState, action) => {
         case SINGLE_SHOW_CAST:
             return {
                 ...state,
+                dataLoaded: true,
                 singleShow: {
                     ...state.singleShow,
                     cast: action.payload
@@ -183,7 +184,7 @@ const dataReducers = (state = initialState, action) => {
             return {
                 ...state,
                 popularShows: action.payload,
-                dataLoaded: true,
+                popularLoaded: true,
             }
         case TOP_RATED_SHOWS:
             return {
