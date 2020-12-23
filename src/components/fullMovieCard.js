@@ -16,15 +16,6 @@ returnToMovies = (e) => {
   this.props.ExitFullInfo()
 }
 
-// viewSimilarMovie = (e) => {
-  // e.preventDefault();
-  // console.log("Swapping to similar movie")
-  // console.log(this)
-  // let id = this.props.data.singleMovie.recommendations;
-  // console.log(id)
-  // this.props.GetMovieInfo()
-// }
-
  render(){
    const {data} = this.props;
    const cardData = data.singleMovie.details;
@@ -141,9 +132,8 @@ let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) 
       <Paper className="p-col-3">
       Runtime: {cardData.runtime} minutes
       </Paper>
-        {homeChecker}
       <Paper className="p-col-3">
-       {/* <a href={`${cardData.homepage}`}>{cardData.title} Homepage</a> */}
+      {homeChecker}
       </Paper>
       </div>
       </div> 

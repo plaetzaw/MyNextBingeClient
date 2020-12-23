@@ -28,10 +28,10 @@ returnToMovies = (e) => {
 
 
   
-//  let genres = [] 
-//  cardData.genres.forEach((item) => {
-// genres.push(" " + item.name + "," + " ")
-//   })
+ let genres = [] 
+ cardData.genres.forEach((item) => {
+genres.push(" " + item.name + "," + " ")
+  })
 
 
 let castRender = Cast.cast.map((cast) => {
@@ -92,7 +92,7 @@ let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) 
           X</button>
       <div className="centerText"><b><h1>{cardData.name}</h1></b>
       {tagChecker}
-      {/* <div className="centerText"><h4>Genres: {genres}</h4></div> */}
+      <div className="centerText"><h4>Genres: {genres}</h4></div>
 
       </div>
       <div className="p-grid">
@@ -117,17 +117,16 @@ let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) 
       
       <div className="p-grid">
       <Paper className="p-col-3">
-      Reported Revenue: ${cardData.revenue}
+      First Episdoe Aired: {cardData.first_air_date}
       </Paper>
       <Paper className="p-col-3">
-      Release Date: {cardData.release_date}
+      Last Episode Aired: {cardData.last_air_date}
       </Paper>
       <Paper className="p-col-3">
-      Runtime: {cardData.runtime} minutes
+      Episode run time: {cardData.episode_run_time[0]} minutes
       </Paper>
-        {homeChecker}
       <Paper className="p-col-3">
-       {/* <a href={`${cardData.homepage}`}>{cardData.name} Homepage</a> */}
+      {homeChecker}
       </Paper>
       </div>
       </div> 
