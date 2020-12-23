@@ -6,7 +6,6 @@ import Card from '@material-ui/core/Card'
 import { CardMedia } from '@material-ui/core'
 import { Button } from '@material-ui/core';
 import { GetPersonInfo } from '../redux/actions/actions'
-import { People } from './popularPeople';
 
 
 
