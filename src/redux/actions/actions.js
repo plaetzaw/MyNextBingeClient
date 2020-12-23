@@ -74,28 +74,28 @@ export const ExitFullInfo = () => (dispatch) => {
 
 //Movie Components
 export const GetPopularMovies =  () => async (dispatch) => {
-  await axios.post("http://localhost:8080/popularMovies")
+  await axios.post("https://mynextbingeserver.herokuapp.com/popularMovies")
   .then((popularMovies) => {
     dispatch({ type: POPULAR_MOVIES, payload: popularMovies.data})
   })
 }
 
 // export const GetNowPlayingMovies =  () => async (dispatch) => {
-//   await axios.post("http://localhost:8080/nowplayingMovies")
+//   await axios.post("https://mynextbingeserver.herokuapp.com/nowplayingMovies")
 //   .then((nowplayingMovies) => {
 //     dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
 //   })
 // }
 
 // export const GetUpcomingMovies =  () => async (dispatch) => {
-//   await axios.post("http://localhost:8080/upcomingMovies")
+//   await axios.post("https://mynextbingeserver.herokuapp.com/upcomingMovies")
 //   .then((upcomingMovies) => {
 //     dispatch({ type: UPCOMING_MOVIES, payload: upcomingMovies.data})
 //   })
 // }
 
 // export const GetTopRatedMovies =  () => async (dispatch) => {
-//   await axios.post("http://localhost:8080/topratedMovies")
+//   await axios.post("https://mynextbingeserver.herokuapp.com/topratedMovies")
 //   .then((topratedMovies) => {
 //     dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
 //   })
@@ -105,27 +105,27 @@ export const GetPopularMovies =  () => async (dispatch) => {
 export const GetMovieInfo = (id) => async (dispatch) => {
   console.log("Action activated - checking for movie")
   console.log(id)
-  await axios.post("http://localhost:8080/fullmovieInfo", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/fullmovieInfo", id)
   .then((singleMovie) => {
     dispatch({ type: SINGLE_MOVIE, payload: singleMovie.data})
   })
   .catch((err) => console.log(err))
-  await axios.post("http://localhost:8080/fullmovieRecommendations", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/fullmovieRecommendations", id)
   .then((recommendations) => {
     dispatch({ type: SINGLE_MOVIE_RECOMMENDATIONS, payload: recommendations.data})
   })
   .catch((err) => console.log(err))
-  await axios.post("http://localhost:8080/fullmovieCredits", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/fullmovieCredits", id)
   .then((cast) => {
     dispatch({ type: SINGLE_MOVIE_CAST, payload: cast.data})
   })
   .catch((err) => console.log(err))
-  await axios.post("http://localhost:8080/fullmovieVideos", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/fullmovieVideos", id)
   .then((videos) => {
     dispatch({ type: SINGLE_MOVIE_VIDEOS, payload: videos.data})
   })
   .catch((err) => console.log(err))
-  await axios.post("http://localhost:8080/fullmovieWatchProviders", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/fullmovieWatchProviders", id)
   .then((watchproviders) => {
     dispatch({ type: SINGLE_MOVIE_WATCHPROVIDERS, payload: watchproviders.data})
   })
@@ -136,17 +136,17 @@ export const GetMovieInfo = (id) => async (dispatch) => {
 export const GetShowInfo = (id) => async (dispatch) => {
   console.log("Action activated - checking for tv show")
   console.log(id)
-  await axios.post("http://localhost:8080/fullshowInfo", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/fullshowInfo", id)
   .then((singleShow) => {
     dispatch({ type: SINGLE_SHOW, payload: singleShow.data})
   })
   .catch((err) => console.log(err))
-  await axios.post("http://localhost:8080/fullshowRecommendations", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/fullshowRecommendations", id)
   .then((recommendations) => {
     dispatch({ type: SINGLE_SHOW_RECOMMENDATIONS, payload: recommendations.data})
   })
   .catch((err) => console.log(err))
-  await axios.post("http://localhost:8080/fullshowCredits", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/fullshowCredits", id)
   .then((cast) => {
     dispatch({ type: SINGLE_SHOW_CAST, payload: cast.data})
   })
@@ -156,12 +156,12 @@ export const GetShowInfo = (id) => async (dispatch) => {
 export const GetPersonInfo = (id) => async (dispatch) => {
   console.log("Action activated - checking for person")
   console.log(id)
-  await axios.post("http://localhost:8080/personInfo", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/personInfo", id)
   .then((details) => {
     dispatch({ type: PERSON_DETAILS, payload: details.data})
   })
   .catch((err) => console.log(err))
-  await axios.post("http://localhost:8080/personCredits", id)
+  await axios.post("https://mynextbingeserver.herokuapp.com/personCredits", id)
   .then((credits) => {
     dispatch({ type: PERSON_CREDITS, payload: credits.data})
   })
@@ -169,20 +169,20 @@ export const GetPersonInfo = (id) => async (dispatch) => {
 
 // export const GetMoviesHome =  () => async (dispatch) => {
 //   console.log("beginning chain")
-//   await axios.post("http://localhost:8080/popularMovies")
+//   await axios.post("https://mynextbingeserver.herokuapp.com/popularMovies")
 //   .then((popularMovies) => {
 //     dispatch({ type: POPULAR_MOVIES, payload: popularMovies.data})
 //     console.log(popularMovies)
 //   })
-//   await axios.post("http://localhost:8080/nowplayingMovies")
+//   await axios.post("https://mynextbingeserver.herokuapp.com/nowplayingMovies")
 //   .then((nowplayingMovies) => {
 //     dispatch({ type: NOW_PLAYING_MOVIES, payload: nowplayingMovies.data})
 //   })
-//   await axios.post("http://localhost:8080/upcomingMovies")
+//   await axios.post("https://mynextbingeserver.herokuapp.com/upcomingMovies")
 //   .then((upcomingMovies) => {
 //     dispatch({ type: UPCOMING_MOVIES, payload: upcomingMovies.data})
 //   })
-//   await axios.post("http://localhost:8080/topratedMovies")
+//   await axios.post("https://mynextbingeserver.herokuapp.com/topratedMovies")
 //   .then((topratedMovies) => {
 //     dispatch({ type: TOP_RATED_MOVIES, payload: topratedMovies.data})
 //   })
@@ -190,15 +190,15 @@ export const GetPersonInfo = (id) => async (dispatch) => {
 
 export const GetTVShowsHome =  () => async (dispatch) => {
   console.log("starting chain")
-  await axios.post("http://localhost:8080/popularShows")
+  await axios.post("https://mynextbingeserver.herokuapp.com/popularShows")
   .then((popularShows) => {
     dispatch({ type: POPULAR_SHOWS, payload: popularShows.data})
   })
-  // await axios.post("http://localhost:8080/topratedShows")
+  // await axios.post("https://mynextbingeserver.herokuapp.com/topratedShows")
   // .then((topratedShows) => {
   //   dispatch({ type: TOP_RATED_SHOWS, payload: topratedShows.data})
   // })
-  // await axios.post("http://localhost:8080/airingtodayShows")
+  // await axios.post("https://mynextbingeserver.herokuapp.com/airingtodayShows")
   // .then((airingtodayShows) => {
   //   dispatch({ type: AIRING_TODAY_SHOWS, payload: airingtodayShows.data})
   // })
@@ -206,7 +206,7 @@ export const GetTVShowsHome =  () => async (dispatch) => {
 
   export const GetPeopleHome =  () => async (dispatch) => {
     console.log("starting chain")
-    await axios.post("http://localhost:8080/popularPeople")
+    await axios.post("https://mynextbingeserver.herokuapp.com/popularPeople")
     .then((popularPeople) => {
       dispatch({ type: POPULAR_PEOPLE, payload: popularPeople.data})
     })
