@@ -32,17 +32,13 @@ const MiniCard = (props) => {
       <Card
       className="miniCard"
       >
-      
-
         <CardMedia
         className="posterMini"
         component="img"
         alt={title}
         src={`https://image.tmdb.org/t/p/original/${urlPath}`}
-        />
-         
+        />  
           <Button 
-          // component={fullInfoCard} 
           onClick={handleMovie}>
            <p className="centerText"><b>View Full Information</b></p></Button>
 

@@ -19,6 +19,9 @@ const { GET_FAVORITE_MOVIES,
         SINGLE_MOVIE_CAST,
         SINGLE_MOVIE_VIDEOS,
         SINGLE_MOVIE_WATCHPROVIDERS,
+        SINGLE_SHOW,
+        SINGLE_SHOW_CAST,
+        SINGLE_SHOW_RECOMMENDATIONS,
         EXIT_ITEM,
     } = require("../actions/actionTypes")
 
@@ -51,14 +54,21 @@ const initialState = {
     // upcomingLoaded: false,
 
     //TV Shows
+    singleShow: {
+        details: [],
+        cast: [], 
+        recommendations: [],
+    },
+
     popularShows: [],
     topratedShows: [],
     airingtodayShows: [],
     popularPeople: [],
+  
+
+    //Favorites
     favoriteMovies: [],
     favoriteTVshows: [],
-
-    //Actors
     favoriteActors: [],
 
     //Genres
@@ -66,6 +76,8 @@ const initialState = {
 
     //Uploads
     uploads: [],
+
+
 }
 
 const dataReducers = (state = initialState, action) => {
@@ -115,7 +127,7 @@ const dataReducers = (state = initialState, action) => {
                     ...state.singleMovie,
                     watchproviders: action.payload
                 }
-            }
+            }    
         case POPULAR_MOVIES:
             return {
                 ...state,
@@ -143,10 +155,35 @@ const dataReducers = (state = initialState, action) => {
                 topratedMovies: action.payload,
                 topratedLoaded: true,
             }
+        case SINGLE_SHOW:
+            return {
+                ...state,
+                singleShow: {
+                    ...state.singleShow,
+                    details: action.payload,
+                }
+            }
+        case SINGLE_SHOW_RECOMMENDATIONS:
+            return {
+                ...state,
+                singleShow: {
+                    ...state.singleShow,
+                    recommendations: action.payload,
+                    }
+                }
+        case SINGLE_SHOW_CAST:
+            return {
+                ...state,
+                singleShow: {
+                    ...state.singleShow,
+                    cast: action.payload
+                }
+            }                        
         case POPULAR_SHOWS:
             return {
                 ...state,
                 popularShows: action.payload,
+                dataLoaded: true,
             }
         case TOP_RATED_SHOWS:
             return {
@@ -157,7 +194,6 @@ const dataReducers = (state = initialState, action) => {
             return {
                 ...state,
                 airingtodayShows: action.payload,
-                dataLoaded: true,
             }
         case POPULAR_PEOPLE:
             return {

@@ -1,45 +1,54 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Card from '@material-ui/core/Card'
 import { CardMedia } from '@material-ui/core'
 import { Button } from '@material-ui/core';
+import { GetShowInfo } from '../redux/actions/actions'
+
 
 
 const MiniCard = (props) => {
-    const {name, overview, poster_path, backdrop_path} = props
+  const dispatch = useDispatch();
+  const {id, name, poster_path, backdrop_path} = props
 
-    const [isToggled, setIsToggled] = React.useState('true')
-
-    const toggle = React.useCallback(() => setIsToggled(!isToggled), [isToggled, setIsToggled])
-  
-    let buttonMarkup = isToggled ? (<Button
-      style={{backgroundColor: 'red'}}>PosterPath</Button>) : 
-      (<Button style={{backgroundColor: 'green'}}>BackdropPath</Button>)
-
-    let urlPath = isToggled ? poster_path : (backdrop_path)
+  function handleShow(){
+    console.log("I have been clicked" + "ID:" + id)
+    let idObj = {
+      id: id
+    }
+     dispatch(GetShowInfo(idObj));
+   }
     return (
     <>
       <Card
-      width="500px"
-      height="500px"
       >
-      <b>{name}</b>
-
+      {/* <b>{name}</b> */}
         <CardMedia
         component="img"
         alt={name}
-        height='300px'
-        width='300px'
-        src={`https://image.tmdb.org/t/p/original/${urlPath}`}
+        src={`https://image.tmdb.org/t/p/original/${poster_path}`}
         />
-         <Button onClick={toggle}>  
-          {buttonMarkup}
-          </Button>
-          <Button>Add To Favorites</Button>
-          <Button>More Information</Button>
-
+          <Button
+          onClick={handleShow}
+          ><p className="centerText"><b>View Show Information</b></p></Button>
       </Card>
     </>
   )
 }
 
-export default MiniCard
+MiniCard.propTypes = {
+  GetShowInfo: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  data: state.data,
+})
+
+const mapDispatchToProps = {
+  GetShowInfo,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MiniCard) 

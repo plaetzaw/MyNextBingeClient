@@ -40,7 +40,6 @@ class Movies extends Component {
 
         const { data } = this.props
         const popularData = data.movies.popularMovies.results
-        // const popularData = data.popularMovies.results
   
          
         let popular;

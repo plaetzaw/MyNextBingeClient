@@ -40,13 +40,13 @@ export class TVShows extends Component {
 
           const { data } = this.props
           const hotData = data.popularShows.results
-          const topRatedData = data.topratedShows.results
-          const airingtodayData = data.airingtodayShows.results
+
 
           let hotMap;
            if (this.props.data.dataLoaded === true){
             hotMap = hotData.map((cards) => {
                 return <MiniCard
+                id={cards.id}
                 name={cards.name}
                 overview={cards.overview}
                 poster_path={cards.poster_path}
@@ -59,52 +59,18 @@ export class TVShows extends Component {
                <LinearProgress/><h1>Loading</h1><LinearProgress/>
                </>
            }
-
-           let topRated;
-           if (this.props.data.dataLoaded === true){
-            topRated = topRatedData.map((cards) => {
-                return <MiniCard
-                title={cards.title}
-                overview={cards.overview}
-                poster_path={cards.poster_path}
-                backdrop_path={cards.backdrop_path}
-                />
-            })
-           } else {
-               topRated = 
-               <>
-               <LinearProgress/><h1>Loading</h1><LinearProgress/>
-               </>
-           }
-
-           let airingToday;
-           if (this.props.data.dataLoaded === true){
-            airingToday = airingtodayData.map((cards) => {
-                return <MiniCard
-                title={cards.title}
-                overview={cards.overview}
-                poster_path={cards.poster_path}
-                backdrop_path={cards.backdrop_path}
-                />
-            })
-           } else {
-               airingToday = 
-               <>
-               <LinearProgress/><h1>Loading</h1><LinearProgress/>
-               </>
-           }
-
           
         return (
-            <div>
-            <h1>Hot Shows</h1>
+          <>
+            <div className="movieDisplay">
+            <div className="centerText"><h1>Hot Shows</h1></div>
             <Carousel
             swipeable={false}
             draggable={false}
             showDots={true}
             responsive={responsive}
             ssr={true} // means to render carousel on server-side.
-            infinite={true}
+            // infinite={true}
             // autoPlay={this.props.deviceType !== "mobile" ? true : false}
             // autoPlaySpeed={1000}
             keyBoardControl={true}
@@ -117,52 +83,9 @@ export class TVShows extends Component {
             itemClass="carousel-item-padding-40-px"
           >
            {hotMap}
-          </Carousel> 
-
-          <h1>Top Rated Shows</h1>
-            <Carousel
-            swipeable={false}
-            draggable={false}
-            showDots={true}
-            responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-            // autoPlaySpeed={1000}
-            keyBoardControl={true}
-            customTransition="all .5"
-            transitionDuration={500}
-            containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            deviceType={this.props.deviceType}
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
-          >
-           {topRated}
-          </Carousel>  
-
-           <h1>Airing Today</h1>
-            <Carousel
-            swipeable={false}
-            draggable={false}
-            showDots={true}
-            responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-            // autoPlaySpeed={1000}
-            keyBoardControl={true}
-            customTransition="all .5"
-            transitionDuration={500}
-            containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            deviceType={this.props.deviceType}
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
-          >
-           {airingToday}
-          </Carousel>         
+          </Carousel>        
             </div>
+            </>
         )
     }
 }

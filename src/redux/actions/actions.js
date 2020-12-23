@@ -4,7 +4,7 @@ import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS,
   SNACKBAR_ERROR, SNACKBAR_CLEAR, POPULAR_MOVIES, NOW_PLAYING_MOVIES, UPCOMING_MOVIES, 
   TOP_RATED_MOVIES, POPULAR_SHOWS, TOP_RATED_SHOWS, AIRING_TODAY_SHOWS, POPULAR_PEOPLE, 
   SINGLE_MOVIE, SINGLE_MOVIE_RECOMMENDATIONS, SINGLE_MOVIE_CAST, SINGLE_MOVIE_VIDEOS,
-SINGLE_MOVIE_WATCHPROVIDERS,
+SINGLE_MOVIE_WATCHPROVIDERS, SINGLE_SHOW, SINGLE_SHOW_CAST, SINGLE_SHOW_RECOMMENDATIONS,
 EXIT_ITEM} from './actionTypes'
 
 // Set JWT Token
@@ -128,8 +128,28 @@ export const GetMovieInfo = (id) => async (dispatch) => {
     dispatch({ type: SINGLE_MOVIE_WATCHPROVIDERS, payload: watchproviders.data})
   })
   .catch((err) => console.log(err))
-
 }
+
+//Full TV Show Information
+export const GetShowInfo = (id) => async (dispatch) => {
+  console.log("Action activated - checking for movie")
+  console.log(id)
+  await axios.post("http://localhost:8080/fullshowInfo", id)
+  .then((singleShow) => {
+    dispatch({ type: SINGLE_SHOW, payload: singleShow.data})
+  })
+  .catch((err) => console.log(err))
+  await axios.post("http://localhost:8080/fullshowRecommendations", id)
+  .then((recommendations) => {
+    dispatch({ type: SINGLE_SHOW_RECOMMENDATIONS, payload: recommendations.data})
+  })
+  .catch((err) => console.log(err))
+  await axios.post("http://localhost:8080/fullshowCredits", id)
+  .then((cast) => {
+    dispatch({ type: SINGLE_SHOW_CAST, payload: cast.data})
+  })
+}
+
 
 // export const GetMoviesHome =  () => async (dispatch) => {
 //   console.log("beginning chain")
@@ -158,14 +178,14 @@ export const GetTVShowsHome =  () => async (dispatch) => {
   .then((popularShows) => {
     dispatch({ type: POPULAR_SHOWS, payload: popularShows.data})
   })
-  await axios.post("http://localhost:8080/topratedShows")
-  .then((topratedShows) => {
-    dispatch({ type: TOP_RATED_SHOWS, payload: topratedShows.data})
-  })
-  await axios.post("http://localhost:8080/airingtodayShows")
-  .then((airingtodayShows) => {
-    dispatch({ type: AIRING_TODAY_SHOWS, payload: airingtodayShows.data})
-  })
+  // await axios.post("http://localhost:8080/topratedShows")
+  // .then((topratedShows) => {
+  //   dispatch({ type: TOP_RATED_SHOWS, payload: topratedShows.data})
+  // })
+  // await axios.post("http://localhost:8080/airingtodayShows")
+  // .then((airingtodayShows) => {
+  //   dispatch({ type: AIRING_TODAY_SHOWS, payload: airingtodayShows.data})
+  // })
 }
 
   export const GetPeopleHome =  () => async (dispatch) => {
