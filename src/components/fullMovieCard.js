@@ -6,7 +6,7 @@ import Placeholder from "../utility/images/200x340.png"
 import 'primeflex/primeflex.css';
 import {Card, CardMedia, CardContent, Paper } from '@material-ui/core'
 import "../utility/layout.css"
-import { ExitFullInfo, GetMovieInfo } from '../redux/actions/actions';
+import { ExitFullInfo, GetMovieInfo, GetPersonInfo } from '../redux/actions/actions';
 
 
 class FullInfoCard extends Component {
@@ -44,6 +44,13 @@ cardData.spoken_languages.forEach((item) => {
 let castRender = Cast.cast.map((cast) => {
   let phChecker = cast.profile_path === null ?   (Placeholder) : (`https://image.tmdb.org/t/p/original/${cast.profile_path}`)
   return <Card
+  // onClick={() => {
+  //   let idObj = {
+  //     id: cast.id
+  //   } 
+  //   console.log(idObj)
+  //   this.props.GetPersonInfo(idObj)
+  // }}
   >
     <img
     src={phChecker}
@@ -167,6 +174,8 @@ let homeChecker = cardData.homepage === "" ? (<><b>No Homepage Reported</b></>) 
 
 FullInfoCard.propTypes = {
   ExitFullInfo: PropTypes.func.isRequired,
+  GetMovieInfo: PropTypes.func.isRequired,
+  GetPersonInfo: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
 }
 
@@ -175,7 +184,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  ExitFullInfo, GetMovieInfo
+  ExitFullInfo, GetMovieInfo, GetPersonInfo
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FullInfoCard) 
