@@ -12,21 +12,21 @@ import { GetMovieInfo } from '../redux/actions/actions'
 
 const MiniCard = (props) => {
   const dispatch = useDispatch();
-  const {id, title, poster_path, backdrop_path} = props
+  const {id, title, poster_path} = props
 
    function handleMovie (){
-     console.log("I have been clicked" + "ID:" + id)
+     console.log("I have been clicked ID:" + id)
      let idObj = {
        id: id
      }
       dispatch(GetMovieInfo(idObj));
     }
 
-    const [isToggled, setIsToggled] = React.useState('true')
+    // const [isToggled, setIsToggled] = React.useState('true')
 
-    const toggle = React.useCallback(() => setIsToggled(!isToggled), [isToggled, setIsToggled])
+    // const toggle = React.useCallback(() => setIsToggled(!isToggled), [isToggled, setIsToggled])
 
-    let urlPath = isToggled ? poster_path : (backdrop_path)
+    // let urlPath = isToggled ? poster_path : (backdrop_path)
     return (
     <>
       <Card
@@ -36,7 +36,7 @@ const MiniCard = (props) => {
         className="posterMini"
         component="img"
         alt={title}
-        src={`https://image.tmdb.org/t/p/original/${urlPath}`}
+        src={`https://image.tmdb.org/t/p/original/${poster_path}`}
         />  
           <Button 
           onClick={handleMovie}>

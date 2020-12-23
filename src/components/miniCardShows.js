@@ -11,10 +11,10 @@ import { GetShowInfo } from '../redux/actions/actions'
 
 const MiniCard = (props) => {
   const dispatch = useDispatch();
-  const {id, name, poster_path, backdrop_path} = props
+  const {id, name, poster_path} = props
 
   function handleShow(){
-    console.log("I have been clicked" + "ID:" + id)
+    console.log("I have been clicked ID:" + id)
     let idObj = {
       id: id
     }

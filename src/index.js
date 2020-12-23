@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 //Pages
 import Home from './pages/home'
 import Picker from './pages/picker'
-import Test from './pages/test'
+// import Test from './pages/test'
 import Login from './pages/login'
 import Register from './pages/register'
 import Movies from './pages/movies'

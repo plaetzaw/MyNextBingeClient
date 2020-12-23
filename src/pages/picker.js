@@ -5,18 +5,18 @@ import '../utility/layout.css'
 
 
 
-const containerItem = {
-    display: 'flex',
-    backgroundColor: '#278EE3',
-    width: '100%',
-    height: '10rem',
-    textAlign: 'center',
-    fontSize: 'xxx-large',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderStyle: 'dotted',
+// const containerItem = {
+//     display: 'flex',
+//     backgroundColor: '#278EE3',
+//     width: '100%',
+//     height: '10rem',
+//     textAlign: 'center',
+//     fontSize: 'xxx-large',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     borderStyle: 'dotted',
 
-}
+// }
 
 function Picker() {
 let history = useHistory();

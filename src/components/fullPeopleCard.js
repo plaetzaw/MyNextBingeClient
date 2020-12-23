@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 // import Placeholder from "../utility/images/200x340.png"
 import Placeholder from "../utility/images/266x400.png"
 import 'primeflex/primeflex.css';
-import {Card, CardMedia, CardContent, Paper } from '@material-ui/core'
+import {Card, CardMedia, CardContent } from '@material-ui/core'
 import "../utility/layout.css"
 import { ExitFullInfo, GetPersonInfo } from '../redux/actions/actions';
 
@@ -25,6 +25,7 @@ class FullInfoCard extends Component {
             return <Card
             >
               <img
+              alt={credits.name}
               src={phChecker}
               height="400"
               />

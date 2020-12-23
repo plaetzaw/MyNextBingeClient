@@ -21,14 +21,14 @@ returnToMovies = (e) => {
    const cardData = data.singleMovie.details;
    const Rec = data.singleMovie.recommendations;
    const Cast = data.singleMovie.cast;
-   const Video = data.singleMovie.video;
-   const WatchProviders = data.singleMovie.watchproviders;
+  //  const Video = data.singleMovie.video;
+  //  const WatchProviders = data.singleMovie.watchproviders;
 
 
   
  let genres = [] 
  cardData.genres.forEach((item) => {
-genres.push(" " + item.name + "," + " ")
+genres.push(item.name + ",")
   })
 
 
@@ -55,6 +55,7 @@ let castRender = Cast.cast.map((cast) => {
     <img
     src={phChecker}
     height="300px"
+    alt={cast.name}
     // width="300px"
     />
     <li className="centerText"><i>{cast.name}</i> as <br/>
@@ -66,6 +67,7 @@ let recRender = Rec.results.map((recs) => {
   let ppChecker = recs.poster_path === null ? (Placeholder) : (`https://image.tmdb.org/t/p/original/${recs.poster_path}`)
   return <Card>
     <img
+    alt={recs.title}
     src={ppChecker}
     height="400px"
      />

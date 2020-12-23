@@ -30,7 +30,7 @@ returnToMovies = (e) => {
   
  let genres = [] 
  cardData.genres.forEach((item) => {
-genres.push(" " + item.name + "," + " ")
+genres.push(item.name + ",")
   })
 
 
@@ -40,6 +40,7 @@ let castRender = Cast.cast.map((cast) => {
   >
     <img
     src={phChecker}
+    alt={cast.name}
     height="300px"
     // width="300px"
     />
@@ -53,6 +54,7 @@ let recRender = Rec.results.map((recs) => {
   return <Card>
     <img
     src={ppChecker}
+    alt={recs.name}
     height="400px"
      />
     <br/>

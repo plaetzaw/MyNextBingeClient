@@ -11,10 +11,12 @@ import { GetPersonInfo } from '../redux/actions/actions'
 
 const PeopleCard = (props) => {
   const dispatch = useDispatch();
-    const {id, name, profile_path, adult, gender, known_for} = props
+    const {id, name, profile_path, 
+      // adult, gender, known_for
+    } = props
 
     function handlePerson(){
-      console.log("I have been clicked" + "ID:" + id)
+      console.log("I have been clicked ID:" + id)
       let idObj = {
         id: id
       }
