@@ -5,7 +5,9 @@ import { SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGGED_IN, SNACKBAR_SUCCESS,
   TOP_RATED_MOVIES, POPULAR_SHOWS, TOP_RATED_SHOWS, AIRING_TODAY_SHOWS, POPULAR_PEOPLE, 
   SINGLE_MOVIE, SINGLE_MOVIE_RECOMMENDATIONS, SINGLE_MOVIE_CAST, SINGLE_MOVIE_VIDEOS,
 SINGLE_MOVIE_WATCHPROVIDERS, SINGLE_SHOW, SINGLE_SHOW_CAST, SINGLE_SHOW_RECOMMENDATIONS,
-EXIT_ITEM} from './actionTypes'
+EXIT_ITEM,
+PERSON_CREDITS,
+PERSON_DETAILS} from './actionTypes'
 
 // Set JWT Token
 export const setAuthorizationHeader = (token) => {
@@ -132,7 +134,7 @@ export const GetMovieInfo = (id) => async (dispatch) => {
 
 //Full TV Show Information
 export const GetShowInfo = (id) => async (dispatch) => {
-  console.log("Action activated - checking for movie")
+  console.log("Action activated - checking for tv show")
   console.log(id)
   await axios.post("http://localhost:8080/fullshowInfo", id)
   .then((singleShow) => {
@@ -150,6 +152,20 @@ export const GetShowInfo = (id) => async (dispatch) => {
   })
 }
 
+// Full Person Info
+export const GetPersonInfo = (id) => async (dispatch) => {
+  console.log("Action activated - checking for person")
+  console.log(id)
+  await axios.post("http://localhost:8080/personInfo", id)
+  .then((details) => {
+    dispatch({ type: PERSON_DETAILS, payload: details.data})
+  })
+  .catch((err) => console.log(err))
+  await axios.post("http://localhost:8080/personCredits", id)
+  .then((credits) => {
+    dispatch({ type: PERSON_CREDITS, payload: credits.data})
+  })
+}
 
 // export const GetMoviesHome =  () => async (dispatch) => {
 //   console.log("beginning chain")

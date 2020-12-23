@@ -22,6 +22,8 @@ const { GET_FAVORITE_MOVIES,
         SINGLE_SHOW,
         SINGLE_SHOW_CAST,
         SINGLE_SHOW_RECOMMENDATIONS,
+        PERSON_DETAILS,
+        PERSON_CREDITS,
         EXIT_ITEM,
     } = require("../actions/actionTypes")
 
@@ -65,6 +67,14 @@ const initialState = {
     airingtodayShows: [],
     popularPeople: [],
   
+    //People
+    person: {
+        details: [],
+        credits: [],
+    },
+    peopleLoaded: false,
+
+
 
     //Favorites
     favoriteMovies: [],
@@ -200,8 +210,25 @@ const dataReducers = (state = initialState, action) => {
             return {
                 ...state,
                 popularPeople: action.payload,
-                dataLoaded: true,
+                peopleLoaded: true,
             }
+        case PERSON_DETAILS:
+            return {
+                ...state,
+                person: {
+                    ...state.person,
+                    details: action.payload,
+                    }
+                }
+        case PERSON_CREDITS:
+            return {
+                ...state,
+                dataLoaded: true,
+                person: {
+                    ...state.person,
+                    credits: action.payload,
+                    }
+                }              
         case GET_FAVORITE_MOVIES: 
         return {
             ...state,
